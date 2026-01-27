@@ -96,6 +96,12 @@ OUTPUT: /docs/design/asset-requirements.md
 
 ### Design Tokens Template
 ```markdown
+---
+title: "Design Tokens: [Product Name]"
+created_by: "UI Agent"
+created_at: "YYYY-MM-DD"
+---
+
 # Design Tokens: [Product Name]
 
 ## Color System
@@ -213,6 +219,12 @@ OUTPUT: /docs/design/asset-requirements.md
 
 ### Component Library Template
 ```markdown
+---
+title: "Component Library: [Product Name]"
+created_by: "UI Agent"
+created_at: "YYYY-MM-DD"
+---
+
 # Component Library: [Product Name]
 
 ## Principles
@@ -429,10 +441,19 @@ interface CardProps {
 │ Footer                              │
 └─────────────────────────────────────┘
 ```
+
+---
+*Документ создан: UI Agent | Дата: YYYY-MM-DD*
 ```
 
 ### Asset Requirements Template
 ```markdown
+---
+title: "Asset Requirements: [Product Name]"
+created_by: "UI Agent"
+created_at: "YYYY-MM-DD"
+---
+
 # Asset Requirements: [Product Name]
 
 ## Image Style Guide
@@ -496,6 +517,9 @@ Negative: [What to avoid]
 Prompt: "[Detailed prompt]"
 Style: "[Style]"
 ```
+
+---
+*Документ создан: UI Agent | Дата: YYYY-MM-DD*
 ```
 
 ## Quality Criteria
@@ -551,6 +575,8 @@ ui_summary:
       status: "complete"
     - path: "/docs/design/asset-requirements.md"
       status: "complete"
+  
+  signature: "UI Agent"  # ОБЯЗАТЕЛЬНО
 ```
 
 ## Как использовать в Cursor

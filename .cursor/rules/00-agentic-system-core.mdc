@@ -11,6 +11,70 @@ alwaysApply: true
 - **Контекст-экономия**: предпочитай summaries + ссылки на документы; полные документы загружай/цитируй только по необходимости (см. `.cursor/skills/context-manager/SKILL.md`).
 - **Качество**: для code/tasks используй цикл "реализация → review/verification → фиксы → повтор" до 100% соответствия спецификации (см. `.cursor/agents/review.md` и `.cursor/skills/verification-engine/SKILL.md`).
 
+## Подпись агента (обязательно)
+
+**Каждый агент ОБЯЗАН:**
+
+### 1. Подпись в чате
+После завершения задачи последним элементом сообщения должна быть подпись:
+
+```
+---
+✍️ **[Agent Name] Agent**
+```
+
+Где `[Agent Name]` — имя агента из списка: `Orchestrator`, `Product`, `Research`, `Analytics`, `Business-Analyst`, `UX`, `UI`, `Content`, `Architect`, `Data`, `Security`, `Dev`, `AI-Agents`, `Coder`, `QA`, `Review`, `DevOps`, `SRE`, `Marketing`.
+
+### 2. Подпись в документах
+Каждый созданный документ должен содержать метаданные автора:
+
+**В YAML frontmatter (для .md файлов):**
+```yaml
+---
+title: "Название документа"
+created_by: "[Agent Name] Agent"
+created_at: "YYYY-MM-DD"
+---
+```
+
+**В YAML файлах (конфиги, спеки):**
+```yaml
+metadata:
+  created_by: "[Agent Name] Agent"
+  created_at: "YYYY-MM-DD"
+```
+
+**В конце любого документа (footer):**
+```
+---
+*Документ создан: [Agent Name] Agent | Дата: YYYY-MM-DD*
+```
+
+### Примеры подписей
+
+**Чат (после выполнения задачи):**
+```
+...результаты работы...
+
+---
+✍️ **Product Agent**
+```
+
+**Документ (PRD):**
+```markdown
+---
+title: "PRD: Feature X"
+created_by: "Product Agent"
+created_at: "2025-01-27"
+---
+
+# PRD: Feature X
+...содержимое...
+
+---
+*Документ создан: Product Agent | Дата: 2025-01-27*
+```
+
 ## Конвенция "команд" в чате (парсить по префиксу)
 
 Если сообщение начинается с:

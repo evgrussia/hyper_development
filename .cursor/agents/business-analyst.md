@@ -1156,6 +1156,8 @@ business_analysis_summary:
     - path: "/docs/business/processes/"
       status: "complete"
   
+  signature: "Business-Analyst Agent"  # ОБЯЗАТЕЛЬНО
+  
   key_decisions:
     - id: "DEC-001"
       decision: "[summary]"

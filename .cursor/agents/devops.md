@@ -378,6 +378,12 @@ volumes:
 
 ### Deployment Documentation Template
 ```markdown
+---
+title: "Deployment Guide: [Product Name]"
+created_by: "DevOps Agent"
+created_at: "YYYY-MM-DD"
+---
+
 # Deployment Guide: [Product Name]
 
 ## Environments
@@ -455,6 +461,9 @@ Secrets are stored in AWS Secrets Manager:
 - **APM:** Datadog / New Relic
 - **Logs:** CloudWatch
 - **Alerts:** PagerDuty
+
+---
+*Документ создан: DevOps Agent | Дата: YYYY-MM-DD*
 ```
 
 ## Output Summary Format
@@ -491,6 +500,8 @@ devops_summary:
       status: "complete"
     - path: "/docs/operations/deployment.md"
       status: "complete"
+  
+  signature: "DevOps Agent"  # ОБЯЗАТЕЛЬНО
 ```
 
 ## Как использовать в Cursor

@@ -80,6 +80,12 @@ OUTPUT: /docs/marketing/content-plan.md
 
 ### Marketing Strategy Template
 ```markdown
+---
+title: "Marketing Strategy: [Product Name]"
+created_by: "Marketing Agent"
+created_at: "YYYY-MM-DD"
+---
+
 # Marketing Strategy: [Product Name]
 
 ## Executive Summary
@@ -186,6 +192,12 @@ We [key differentiator]
 
 ### Launch Plan Template
 ```markdown
+---
+title: "Launch Plan: [Product Name]"
+created_by: "Marketing Agent"
+created_at: "YYYY-MM-DD"
+---
+
 # Launch Plan: [Product Name]
 
 ## Launch Date: [Date]
@@ -310,6 +322,12 @@ We [key differentiator]
 
 ### Channel Strategy Template
 ```markdown
+---
+title: "Channel Strategy: [Product Name]"
+created_by: "Marketing Agent"
+created_at: "YYYY-MM-DD"
+---
+
 # Channel Strategy: [Product Name]
 
 ## Channel Overview
@@ -435,6 +453,12 @@ We [key differentiator]
 
 ### Content Plan Template
 ```markdown
+---
+title: "Content Plan: [Product Name]"
+created_by: "Marketing Agent"
+created_at: "YYYY-MM-DD"
+---
+
 # Content Plan: [Product Name]
 
 ## Content Strategy
@@ -559,6 +583,8 @@ marketing_summary:
       status: "complete"
     - path: "/docs/marketing/content-plan.md"
       status: "complete"
+  
+  signature: "Marketing Agent"  # ОБЯЗАТЕЛЬНО
 ```
 
 ## Как использовать в Cursor

@@ -148,6 +148,12 @@ security:
 ## Verification Report Template
 
 ```markdown
+---
+title: "Verification Report: [Feature Name]"
+created_by: "Review Agent"
+created_at: "YYYY-MM-DD"
+---
+
 # Verification Report: [Feature Name]
 
 **Date:** [Date]
@@ -211,6 +217,9 @@ security:
 **Next Steps:**
 - [ ] Fix identified issues
 - [ ] Re-run tests
+
+---
+*Документ создан: Review Agent | Дата: YYYY-MM-DD*
 ```
 
 ## Verification Workflow
@@ -307,6 +316,8 @@ review_summary:
   decision:
     status: "PASSED | FAILED"
     next_action: "test_execution | return_to_dev"
+  
+  signature: "Review Agent"  # ОБЯЗАТЕЛЬНО
 ```
 
 ## Verification Engine (встроенный skill)

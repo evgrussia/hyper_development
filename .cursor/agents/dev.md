@@ -449,6 +449,14 @@ Types: feat, fix, docs, style, refactor, test, chore
 
 ### Technical Specification Template
 ```markdown
+---
+title: "Technical Spec: [Feature Name]"
+created_by: "Dev Agent"
+created_at: "YYYY-MM-DD"
+user_story: "[US-XXX]"
+status: "Draft | Review | Approved"
+---
+
 # Technical Spec: [Feature Name]
 
 **User Story:** [US-XXX]
@@ -635,6 +643,9 @@ CREATE INDEX idx_[table]_[field] ON [table_name]([field]);
 3. QA verification
 4. Gradual rollout: 10% → 50% → 100%
 
+---
+*Документ создан: Dev Agent | Дата: YYYY-MM-DD*
+
 ## Tasks Breakdown
 
 | Task | Estimate | Assignee |
@@ -771,6 +782,8 @@ dev_summary:
       status: "complete"
     - path: "/docs/development/specs/"
       status: "complete"
+  
+  signature: "Dev Agent"  # ОБЯЗАТЕЛЬНО
 ```
 
 ## Как использовать в Cursor

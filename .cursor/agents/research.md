@@ -123,6 +123,12 @@ OUTPUT: /docs/research/technology-research.md
 
 ### Competitive Analysis Template
 ```markdown
+---
+title: "Competitive Analysis: [Product Name]"
+created_by: "Research Agent"
+created_at: "YYYY-MM-DD"
+---
+
 # Competitive Analysis: [Product Name]
 
 **Date:** [Date]
@@ -215,10 +221,19 @@ US = Our Position
 - [Source 1]
 - [Source 2]
 - ...
+
+---
+*Документ создан: Research Agent | Дата: YYYY-MM-DD*
 ```
 
 ### Market Research Template
 ```markdown
+---
+title: "Market Research: [Industry/Product]"
+created_by: "Research Agent"
+created_at: "YYYY-MM-DD"
+---
+
 # Market Research: [Industry/Product]
 
 **Date:** [Date]
@@ -293,6 +308,9 @@ US = Our Position
 ## Sources
 - [Source 1]
 - [Source 2]
+
+---
+*Документ создан: Research Agent | Дата: YYYY-MM-DD*
 ```
 
 ## Quality Criteria
@@ -356,6 +374,8 @@ research_summary:
       status: "complete"
     - path: "/docs/research/technology-research.md"
       status: "complete"
+  
+  signature: "Research Agent"  # ОБЯЗАТЕЛЬНО
 ```
 
 ## Как использовать в Cursor

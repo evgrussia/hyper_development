@@ -80,6 +80,13 @@ OUTPUT: /docs/analytics/experiment-framework.md
 
 ### Tracking Plan Template
 ```markdown
+---
+title: "Tracking Plan: [Product Name]"
+created_by: "Analytics Agent"
+created_at: "YYYY-MM-DD"
+version: "1.0"
+---
+
 # Tracking Plan: [Product Name]
 
 **Version:** 1.0
@@ -203,10 +210,19 @@ analytics.track(
 2. Property types must match schema
 3. Enum values must be from allowed list
 4. Timestamps in ISO 8601 format
+
+---
+*Документ создан: Analytics Agent | Дата: YYYY-MM-DD*
 ```
 
 ### Metrics Framework Template
 ```markdown
+---
+title: "Metrics Framework: [Product Name]"
+created_by: "Analytics Agent"
+created_at: "YYYY-MM-DD"
+---
+
 # Metrics Framework: [Product Name]
 
 ## North Star Metric
@@ -289,6 +305,9 @@ analytics.track(
 - Acquisition channels
 - Conversion funnels
 - Cohort retention
+
+---
+*Документ создан: Analytics Agent | Дата: YYYY-MM-DD*
 ```
 
 ## Quality Criteria
@@ -335,6 +354,8 @@ analytics_summary:
       status: "complete"
     - path: "/docs/analytics/experiment-framework.md"
       status: "complete"
+  
+  signature: "Analytics Agent"  # ОБЯЗАТЕЛЬНО
 ```
 
 ## Как использовать в Cursor

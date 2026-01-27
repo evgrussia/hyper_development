@@ -255,6 +255,7 @@ task_response:
     decisions: []          # принятые решения
   issues: []              # проблемы, если есть
   next_steps: []          # рекомендуемые следующие шаги
+  signature: string       # ОБЯЗАТЕЛЬНО: "[Agent Name] Agent"
 ```
 
 ## Как использовать в Cursor

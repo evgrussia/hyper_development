@@ -124,6 +124,12 @@ OUTPUT: Test results + Coverage report
 
 ### Test Strategy Template
 ```markdown
+---
+title: "Test Strategy: [Product Name]"
+created_by: "QA Agent"
+created_at: "YYYY-MM-DD"
+---
+
 # Test Strategy: [Product Name]
 
 ## Overview
@@ -282,10 +288,19 @@ This document outlines the testing strategy for [Product Name].
 ### Data Cleanup
 - Truncate after test suite
 - Transaction rollback (where possible)
+
+---
+*Документ создан: QA Agent | Дата: YYYY-MM-DD*
 ```
 
 ### Test Plan Template
 ```markdown
+---
+title: "Test Plan: [Feature/Release Name]"
+created_by: "QA Agent"
+created_at: "YYYY-MM-DD"
+---
+
 # Test Plan: [Feature/Release Name]
 
 ## Overview
@@ -370,10 +385,21 @@ This document outlines the testing strategy for [Product Name].
 - Bug reports
 - Coverage report
 - Sign-off document
+
+---
+*Документ создан: QA Agent | Дата: YYYY-MM-DD*
 ```
 
 ### Test Cases Template
 ```markdown
+---
+title: "Test Cases: [Feature Name]"
+created_by: "QA Agent"
+created_at: "YYYY-MM-DD"
+feature: "[Name]"
+user_story: "[US-XXX]"
+---
+
 # Test Cases: [Feature Name]
 
 ## Overview
@@ -502,6 +528,9 @@ npm run test:feature:[name]
 | TC-003 | `integration/auth.test.ts:50` | ✓ |
 | TC-004 | `e2e/[feature].spec.ts:30` | ✓ |
 | TC-005 | `integration/[feature].test.ts:100` | Pending |
+
+---
+*Документ создан: QA Agent | Дата: YYYY-MM-DD*
 ```
 
 ### Test Infrastructure Template
@@ -770,6 +799,8 @@ qa_summary:
       status: "complete"
     - path: "/docker/docker-compose.test.yml"
       status: "complete"
+  
+  signature: "QA Agent"  # ОБЯЗАТЕЛЬНО
 ```
 
 ## Как использовать в Cursor

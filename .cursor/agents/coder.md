@@ -256,6 +256,8 @@ coder_result:
   clarifications_needed:
     - question: "[Question about spec]"
       impact: "[How it affects implementation]"
+  
+  signature: "Coder Agent"  # ОБЯЗАТЕЛЬНО
 ```
 
 ## Code Generation Principles

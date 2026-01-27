@@ -90,6 +90,12 @@ OUTPUT: /docs/content/microcopy-guide.md
 
 ### Voice & Tone Template
 ```markdown
+---
+title: "Voice & Tone Guide: [Product Name]"
+created_by: "Content Agent"
+created_at: "YYYY-MM-DD"
+---
+
 # Voice & Tone Guide: [Product Name]
 
 ## Brand Voice
@@ -169,10 +175,19 @@ OUTPUT: /docs/content/microcopy-guide.md
    - Use contractions
    - Avoid jargon
    - Show empathy
+
+---
+*Документ создан: Content Agent | Дата: YYYY-MM-DD*
 ```
 
 ### Microcopy Guide Template
 ```markdown
+---
+title: "Microcopy Guide: [Product Name]"
+created_by: "Content Agent"
+created_at: "YYYY-MM-DD"
+---
+
 # Microcopy Guide: [Product Name]
 
 ## Buttons
@@ -323,10 +338,19 @@ This action cannot be undone. [Optional: what will happen]
 "[Explanation] + [Optional: action hint]"
 
 Example: "Last edited 2 hours ago. Click to see history."
+
+---
+*Документ создан: Content Agent | Дата: YYYY-MM-DD*
 ```
 
 ### UI Copy Template
 ```markdown
+---
+title: "UI Copy: [Product Name]"
+created_by: "Content Agent"
+created_at: "YYYY-MM-DD"
+---
+
 # UI Copy: [Product Name]
 
 ## Global Elements
@@ -404,6 +428,9 @@ Hi [Name],
 
 [Company Name]
 ```
+
+---
+*Документ создан: Content Agent | Дата: YYYY-MM-DD*
 ```
 
 ## Quality Criteria
@@ -452,6 +479,8 @@ content_summary:
       status: "complete"
     - path: "/docs/content/microcopy-guide.md"
       status: "complete"
+  
+  signature: "Content Agent"  # ОБЯЗАТЕЛЬНО
 ```
 
 ## Как использовать в Cursor

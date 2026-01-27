@@ -143,6 +143,12 @@ OUTPUT: /docs/discovery/decision-log.md
 
 ### Vision Template
 ```markdown
+---
+title: "Product Vision: [Product Name]"
+created_by: "Product Agent"
+created_at: "YYYY-MM-DD"
+---
+
 # Product Vision: [Product Name]
 
 ## Problem Statement
@@ -178,10 +184,21 @@ OUTPUT: /docs/discovery/decision-log.md
 ## Risks
 1. ...
 2. ...
+
+---
+*Документ создан: Product Agent | Дата: YYYY-MM-DD*
 ```
 
 ### PRD Template
 ```markdown
+---
+title: "PRD: [Feature/Product Name]"
+created_by: "Product Agent"
+created_at: "YYYY-MM-DD"
+version: "1.0"
+status: "Draft | Review | Approved"
+---
+
 # PRD: [Feature/Product Name]
 
 **Version:** 1.0
@@ -267,10 +284,19 @@ OUTPUT: /docs/discovery/decision-log.md
 
 ## Appendix
 [Дополнительные материалы]
+
+---
+*Документ создан: Product Agent | Дата: YYYY-MM-DD*
 ```
 
 ### User Story Template
 ```markdown
+---
+title: "User Stories: [Epic Name]"
+created_by: "Product Agent"
+created_at: "YYYY-MM-DD"
+---
+
 # User Stories: [Epic Name]
 
 ## Epic: [Epic Name]
@@ -312,6 +338,9 @@ Scenario: [Error case]
 ---
 
 ### US-002: ...
+
+---
+*Документ создан: Product Agent | Дата: YYYY-MM-DD*
 ```
 
 ## Quality Criteria
@@ -383,6 +412,8 @@ product_summary:
       status: "complete"
     - path: "/docs/discovery/decision-log.md"
       status: "complete"
+  
+  signature: "Product Agent"  # ОБЯЗАТЕЛЬНО
 ```
 
 ## Как использовать в Cursor

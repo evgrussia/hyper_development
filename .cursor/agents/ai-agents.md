@@ -789,6 +789,8 @@ ai_agent_summary:
       status: "complete"
     - path: "/tests/agents/[name]/"
       status: "complete"
+  
+  signature: "AI-Agents Agent"  # ОБЯЗАТЕЛЬНО
 ```
 
 ## Интеграция с другими агентами

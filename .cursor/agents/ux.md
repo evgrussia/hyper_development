@@ -113,6 +113,12 @@ OUTPUT: /docs/design/accessibility.md
 
 ### User Flow Template
 ```markdown
+---
+title: "User Flows: [Product Name]"
+created_by: "UX Agent"
+created_at: "YYYY-MM-DD"
+---
+
 # User Flows: [Product Name]
 
 ## Overview
@@ -174,10 +180,19 @@ OUTPUT: /docs/design/accessibility.md
 
 ## Flow 2: [Flow Name]
 ...
+
+---
+*Документ создан: UX Agent | Дата: YYYY-MM-DD*
 ```
 
 ### Information Architecture Template
 ```markdown
+---
+title: "Information Architecture: [Product Name]"
+created_by: "UX Agent"
+created_at: "YYYY-MM-DD"
+---
+
 # Information Architecture: [Product Name]
 
 ## Site Map
@@ -268,10 +283,19 @@ OUTPUT: /docs/design/accessibility.md
 - Prioritization: [logic]
 - Filters: [list]
 - Sort options: [list]
+
+---
+*Документ создан: UX Agent | Дата: YYYY-MM-DD*
 ```
 
 ### Accessibility Requirements Template
 ```markdown
+---
+title: "Accessibility Requirements: [Product Name]"
+created_by: "UX Agent"
+created_at: "YYYY-MM-DD"
+---
+
 # Accessibility Requirements: [Product Name]
 
 ## Target Compliance
@@ -351,10 +375,19 @@ OUTPUT: /docs/design/accessibility.md
 - [ ] Zoom to 200%
 - [ ] High contrast mode
 - [ ] Reduced motion
+
+---
+*Документ создан: UX Agent | Дата: YYYY-MM-DD*
 ```
 
 ### Wireframe Specification Template
 ```markdown
+---
+title: "Wireframe Specifications: [Product Name]"
+created_by: "UX Agent"
+created_at: "YYYY-MM-DD"
+---
+
 # Wireframe Specifications: [Product Name]
 
 ## Screen Inventory
@@ -432,6 +465,9 @@ OUTPUT: /docs/design/accessibility.md
 
 ## Screen: [Next Screen]
 ...
+
+---
+*Документ создан: UX Agent | Дата: YYYY-MM-DD*
 ```
 
 ## Quality Criteria
@@ -492,6 +528,8 @@ ux_summary:
       status: "complete"
     - path: "/docs/design/accessibility.md"
       status: "complete"
+  
+  signature: "UX Agent"  # ОБЯЗАТЕЛЬНО
 ```
 
 ## Как использовать в Cursor

@@ -88,6 +88,13 @@ OUTPUT: /docs/security/compliance.md
 
 ### Threat Model Template
 ```markdown
+---
+title: "Threat Model: [Product Name]"
+created_by: "Security Agent"
+created_at: "YYYY-MM-DD"
+version: "1.0"
+---
+
 # Threat Model: [Product Name]
 
 ## Overview
@@ -213,6 +220,12 @@ Likely  │            │        │      │          │
 
 ### Security Requirements Template
 ```markdown
+---
+title: "Security Requirements: [Product Name]"
+created_by: "Security Agent"
+created_at: "YYYY-MM-DD"
+---
+
 # Security Requirements: [Product Name]
 
 ## Authentication
@@ -353,10 +366,19 @@ Access-Control-Max-Age: 86400
 - Security unit tests
 - OWASP ZAP in CI
 - Annual penetration test
+
+---
+*Документ создан: Security Agent | Дата: YYYY-MM-DD*
 ```
 
 ### Compliance Template
 ```markdown
+---
+title: "Compliance Requirements: [Product Name]"
+created_by: "Security Agent"
+created_at: "YYYY-MM-DD"
+---
+
 # Compliance Requirements: [Product Name]
 
 ## Applicable Regulations
@@ -429,6 +451,9 @@ Must include:
 - Users: Within 72 hours (if PII affected)
 - Regulators: Within 72 hours (GDPR)
 - Internal: Immediately
+
+---
+*Документ создан: Security Agent | Дата: YYYY-MM-DD*
 ```
 
 ## Quality Criteria
@@ -479,6 +504,8 @@ security_summary:
       status: "complete"
     - path: "/docs/security/compliance.md"
       status: "complete"
+  
+  signature: "Security Agent"  # ОБЯЗАТЕЛЬНО
 ```
 
 ## Как использовать в Cursor

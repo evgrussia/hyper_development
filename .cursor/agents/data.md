@@ -85,6 +85,12 @@ OUTPUT: /docs/data/migrations.md
 
 ### Domain Model Template
 ```markdown
+---
+title: "Domain Model: [Product Name]"
+created_by: "Data Agent"
+created_at: "YYYY-MM-DD"
+---
+
 # Domain Model: [Product Name]
 
 ## Ubiquitous Language
@@ -187,10 +193,19 @@ OUTPUT: /docs/data/migrations.md
   }
 }
 ```
+
+---
+*Документ создан: Data Agent | Дата: YYYY-MM-DD*
 ```
 
 ### Database Schema Template
 ```markdown
+---
+title: "Database Schema: [Product Name]"
+created_by: "Data Agent"
+created_at: "YYYY-MM-DD"
+---
+
 # Database Schema: [Product Name]
 
 ## Overview
@@ -282,10 +297,19 @@ ALTER TABLE users ADD CONSTRAINT chk_users_email
 
 ## Archiving Strategy
 [How old data is handled]
+
+---
+*Документ создан: Data Agent | Дата: YYYY-MM-DD*
 ```
 
 ### API Contracts Template
 ```markdown
+---
+title: "API Contracts: [Product Name]"
+created_by: "Data Agent"
+created_at: "YYYY-MM-DD"
+---
+
 # API Contracts: [Product Name]
 
 ## Overview
@@ -499,6 +523,9 @@ Delete resource.
 ```
 
 **Expected Response:** 2xx within 5 seconds
+
+---
+*Документ создан: Data Agent | Дата: YYYY-MM-DD*
 ```
 
 ### OpenAPI Spec Example
@@ -627,6 +654,8 @@ data_summary:
       status: "complete"
     - path: "/api/openapi.yaml"
       status: "complete"
+  
+  signature: "Data Agent"  # ОБЯЗАТЕЛЬНО
 ```
 
 ## Как использовать в Cursor

@@ -135,6 +135,12 @@ OUTPUT: /docs/architecture/tech-stack.md
 
 ### Architecture Overview Template
 ```markdown
+---
+title: "Architecture Overview: [Product Name]"
+created_by: "Architect Agent"
+created_at: "YYYY-MM-DD"
+---
+
 # Architecture Overview: [Product Name]
 
 ## Executive Summary
@@ -208,10 +214,19 @@ OUTPUT: /docs/architecture/tech-stack.md
 
 ## Security Architecture
 [High-level security approach]
+
+---
+*Документ создан: Architect Agent | Дата: YYYY-MM-DD*
 ```
 
 ### ADR Template
 ```markdown
+---
+title: "ADR-[NNN]: [Title]"
+created_by: "Architect Agent"
+created_at: "YYYY-MM-DD"
+---
+
 # ADR-[NNN]: [Title]
 
 ## Status
@@ -253,10 +268,19 @@ OUTPUT: /docs/architecture/tech-stack.md
 ## References
 - [Link 1]
 - [Link 2]
+
+---
+*Документ создан: Architect Agent | Дата: YYYY-MM-DD*
 ```
 
 ### NFR Specifications Template
 ```markdown
+---
+title: "Non-Functional Requirements: [Product Name]"
+created_by: "Architect Agent"
+created_at: "YYYY-MM-DD"
+---
+
 # Non-Functional Requirements: [Product Name]
 
 ## Performance
@@ -360,10 +384,19 @@ OUTPUT: /docs/architecture/tech-stack.md
 ### Tracing
 - Distributed tracing: [OpenTelemetry]
 - Sampling rate: 10% normal, 100% errors
+
+---
+*Документ создан: Architect Agent | Дата: YYYY-MM-DD*
 ```
 
 ### Tech Stack Template
 ```markdown
+---
+title: "Technology Stack: [Product Name]"
+created_by: "Architect Agent"
+created_at: "YYYY-MM-DD"
+---
+
 # Technology Stack: [Product Name]
 
 ## Overview
@@ -481,6 +514,9 @@ npm run dev
 - IDE: VS Code with [extensions]
 - API Testing: Postman / Insomnia
 - DB Client: [pgAdmin / DBeaver]
+
+---
+*Документ создан: Architect Agent | Дата: YYYY-MM-DD*
 ```
 
 ## Quality Criteria
@@ -545,6 +581,8 @@ architecture_summary:
       status: "complete"
     - path: "/docs/architecture/tech-stack.md"
       status: "complete"
+  
+  signature: "Architect Agent"  # ОБЯЗАТЕЛЬНО
 ```
 
 ## Как использовать в Cursor

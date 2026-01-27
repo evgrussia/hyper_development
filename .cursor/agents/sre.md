@@ -76,6 +76,12 @@ OUTPUT: /docs/operations/runbooks/
 
 ### SLO Documentation Template
 ```markdown
+---
+title: "Service Level Objectives: [Product Name]"
+created_by: "SRE Agent"
+created_at: "YYYY-MM-DD"
+---
+
 # Service Level Objectives: [Product Name]
 
 ## Overview
@@ -139,10 +145,19 @@ Allowed downtime (99.9%) = 43,200 × 0.001 = 43.2 minutes/month
 - Weekly: Error budget status
 - Monthly: SLO performance review
 - Quarterly: SLO target adjustment
+
+---
+*Документ создан: SRE Agent | Дата: YYYY-MM-DD*
 ```
 
 ### Monitoring Configuration Template
 ```markdown
+---
+title: "Monitoring Configuration: [Product Name]"
+created_by: "SRE Agent"
+created_at: "YYYY-MM-DD"
+---
+
 # Monitoring Configuration: [Product Name]
 
 ## Metrics
@@ -236,10 +251,19 @@ api.db.query.users.findById
 - Service-specific metrics
 - Dependencies health
 - Recent deployments
+
+---
+*Документ создан: SRE Agent | Дата: YYYY-MM-DD*
 ```
 
 ### Alerting Configuration Template
 ```markdown
+---
+title: "Alerting Configuration: [Product Name]"
+created_by: "SRE Agent"
+created_at: "YYYY-MM-DD"
+---
+
 # Alerting Configuration: [Product Name]
 
 ## Alert Channels
@@ -369,6 +393,12 @@ annotations:
 
 ### Runbook Template
 ```markdown
+---
+title: "Runbook: [Alert Name]"
+created_by: "SRE Agent"
+created_at: "YYYY-MM-DD"
+---
+
 # Runbook: [Alert Name]
 
 ## Overview
@@ -450,6 +480,9 @@ If not resolved in 30 minutes:
 - [ ] Root cause identified
 - [ ] Postmortem scheduled
 - [ ] Follow-up actions created
+
+---
+*Документ создан: SRE Agent | Дата: YYYY-MM-DD*
 ```
 
 ## Output Summary Format
@@ -484,6 +517,8 @@ sre_summary:
       status: "complete"
     - path: "/docs/operations/runbooks/"
       status: "complete"
+  
+  signature: "SRE Agent"  # ОБЯЗАТЕЛЬНО
 ```
 
 ## Как использовать в Cursor

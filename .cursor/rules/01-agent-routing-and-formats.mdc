@@ -54,4 +54,25 @@ task_response:
       - "<path>"
   issues: []
   next_steps: []
+  signature: "[Agent Name] Agent"  # ОБЯЗАТЕЛЬНО: подпись агента
+```
+
+## Подпись агента в task_response
+
+Поле `signature` обязательно в каждом `task_response`. Формат: `"[Agent Name] Agent"`.
+
+Пример:
+```yaml
+task_response:
+  agent: "coder"
+  status: "completed"
+  output:
+    summary: "Реализован API endpoint для создания пользователя"
+    artifacts:
+      - "src/modules/user/controllers/user.controller.ts"
+      - "tests/unit/user.test.ts"
+  issues: []
+  next_steps:
+    - "Review Agent: верификация реализации"
+  signature: "Coder Agent"
 ```
