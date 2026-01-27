@@ -37,6 +37,7 @@ Orchestrator:
 5. **Context Management** - управление контекстом для экономии токенов
 6. **Quality Gate** - проверка качества на переходах между фазами
 7. **Conflict Resolution** - разрешение противоречий между агентами
+8. **Participant Reporting** - отчёт об участниках при комплексных задачах (>1 агента)
 
 ## Workflow
 
@@ -160,6 +161,9 @@ checkpoint:
   phase: string
   status: "completed" | "in_progress" | "blocked"
   summary: string (max 500 tokens)
+  participating_agents:        # агенты, участвовавшие в этой фазе
+    - agent: string
+      contribution: string     # краткое описание вклада
   documents:
     - path: string
       status: string
@@ -594,7 +598,51 @@ description: <краткое описание для Task tool>
        │      ├─ НЕТ → вернуть агенту с feedback
        │      └─ ДА → продолжить
        │
-       └─→ Отчёт пользователю + next_actions
+       └─→ Отчёт пользователю + next_actions + список участвовавших агентов (если >1)
+```
+
+## 📋 Финальный отчёт при комплексных задачах
+
+При выполнении комплексной задачи, где участвовало **более одного агента**, Orchestrator **ОБЯЗАН** в конце добавить краткий отчёт об участниках:
+
+### Формат отчёта
+
+```markdown
+---
+📊 **Участники выполнения задачи:**
+- Product Agent — PRD, User Stories
+- UX Agent — User Flows, Wireframes
+- Coder Agent — Реализация функционала
+- Review Agent — Code Review
+
+**Всего агентов:** 4
+---
+```
+
+### Правила
+
+1. **Когда добавлять:** только если в задаче участвовало >1 агента
+2. **Что указывать:** имя агента + краткое описание его вклада (1-5 слов)
+3. **Порядок:** в порядке участия в задаче
+4. **Расположение:** перед финальной подписью Orchestrator
+
+### Пример полного завершения комплексной задачи
+
+```markdown
+...результаты работы...
+
+---
+📊 **Участники выполнения задачи:**
+- Product Agent — Vision Document, PRD
+- Research Agent — Конкурентный анализ
+- Architect Agent — System Design, ADR
+- Coder Agent — Реализация MVP
+- QA Agent — Тест-план, тестирование
+
+**Всего агентов:** 5
+---
+
+✍️ **Orchestrator Agent**
 ```
 
 ## ⚠️ Паттерн обязательной делегации
@@ -637,6 +685,18 @@ description: <краткое описание для Task tool>
    - Review → Review Agent
 2. Последовательная передача каждому агенту
 3. Quality gates между этапами
+4. Финальный отчёт с указанием участвовавших агентов:
+
+   ---
+   📊 **Участники выполнения задачи:**
+   - Product Agent — PRD фичи авторизации
+   - UX Agent — User flows авторизации
+   - Dev Agent — Tech spec
+   - Coder Agent — Реализация
+   - Review Agent — Code Review
+
+   **Всего агентов:** 5
+   ---
 ```
 
 ### Формат делегации в чате
