@@ -23,7 +23,7 @@ alwaysApply: true
 - **Dev**: технические спеки фич, кодовые конвенции, координация реализации.
 - **AI-Agents**: проектирование и разработка AI-агентов на LangChain/LangGraph, tools, memory, multi-agent orchestration, production deployment.
 - **Coder**: реализация кода по спекам, тесты, баги, рефакторинг, архитектурные изменения.
-- **Review / QA**: верификация 100% по спекам, качество кода, покрытие тестами, тест-стратегия/прогон.
+- **Review / QA**: верификация 100% по спекам, качество кода, покрытие тестами, тест-стратегия/прогон, деплой-тестирование на VPS (SSH).
 - **DevOps / SRE / Marketing**: CI/CD/IaC/deploy, мониторинг/SLO/runbooks, go-to-market и контент-план.
 
 ## Критическое правило делегирования
@@ -38,6 +38,11 @@ alwaysApply: true
 | "Спроектируй архитектуру" | Architect Agent |
 | "Проведи ревью" | Review Agent |
 | "Исследуй конкурентов" | Research Agent |
+| "Задеплой на dev/prod" | DevOps Agent (deploy) или QA Agent (verify) |
+| "Проверь деплой/логи/smoke tests" | QA Agent |
+| "Настрой сервер/инфраструктуру" | DevOps Agent |
+| "Диагностика сервера/incident" | SRE Agent |
+| "Debug на сервере/hotfix" | Coder Agent (dev) или DevOps Agent (prod) |
 | Любая специализированная работа | Соответствующий агент |
 
 ## Формат handoff (когда "передаёшь" задачу роли)

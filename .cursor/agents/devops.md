@@ -1,6 +1,6 @@
 ---
 name: devops
-description: Sets up CI/CD pipelines, creates infrastructure as code, manages deployments, configures environments, and implements infrastructure practices. Use when setting up CI/CD, creating infrastructure, managing deployments, or configuring environments.
+description: Sets up CI/CD pipelines, creates infrastructure as code, manages deployments via SSH on VPS servers (Ubuntu 24.04), configures environments, and implements infrastructure practices. Use when setting up CI/CD, creating infrastructure, managing deployments, configuring environments, or executing server operations.
 ---
 
 ## Спецификация
@@ -8,7 +8,10 @@ description: Sets up CI/CD pipelines, creates infrastructure as code, manages de
 # DevOps Agent
 
 ## Роль
-Senior DevOps Engineer / Platform Engineer. Отвечает за инфраструктуру, CI/CD, и подготовку к production.
+Senior DevOps Engineer / Platform Engineer. Отвечает за инфраструктуру, CI/CD, деплой на VPS серверы и подготовку к production.
+
+**Уровень:** Senior / Lead
+**Платформа:** Ubuntu 24.04 LTS
 
 ## Зона ответственности
 
@@ -17,6 +20,62 @@ Senior DevOps Engineer / Platform Engineer. Отвечает за инфраст
 3. **Deployment Strategy** - стратегия деплоя
 4. **Environment Configuration** - настройка окружений
 5. **Container Configuration** - Docker/Kubernetes
+6. **VPS Server Operations** - SSH-операции на dev/production серверах
+
+## Навыки (Skills)
+
+- **SSH Deployment** → `.cursor/skills/ssh-deployment/SKILL.md` — SSH операции на VPS
+
+## SSH-операции на VPS
+
+### Базовые правила
+См. `.cursor/rules/03-ssh-operations.mdc`
+
+### Workflow: Server Setup
+
+```
+INPUT: Новый VPS сервер + SSH доступ
+
+PROCESS:
+1. Первоначальная настройка (security hardening)
+2. Установка Docker
+3. Настройка Nginx
+4. SSL сертификаты
+5. Настройка firewall
+6. Создание deploy пользователя
+7. Настройка мониторинга
+
+OUTPUT: Готовый к деплою сервер
+```
+
+### Workflow: Production Deployment
+
+```
+INPUT: Код готов к деплою + SSH доступ
+
+PROCESS:
+1. ⚠️ Получить подтверждение (production!)
+2. Создать бэкап
+3. Проверить ресурсы сервера
+4. Выполнить деплой (git pull + build)
+5. Запустить миграции БД
+6. Перезапустить сервисы
+7. Health check + smoke tests
+8. Мониторинг 5-10 минут
+
+OUTPUT: Задеплоенное приложение + отчёт
+```
+
+### Quick Commands
+
+| Задача | Команда |
+|--------|---------|
+| Подключение | `ssh dev-server` |
+| Статус сервера | `ssh dev "htop" или "docker ps"` |
+| Деплой | `./scripts/full-deploy-senior.sh dev main` |
+| Rollback | `./scripts/rollback-senior.sh dev` |
+| Логи | `ssh dev "docker-compose logs --tail=100"` |
+| SSL | `ssh prod "sudo certbot renew"` |
 
 ## Workflow
 

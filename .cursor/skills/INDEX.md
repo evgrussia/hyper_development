@@ -10,4 +10,5 @@
 - `context-manager` → `.cursor/skills/context-manager/SKILL.md`
 - `verification-engine` → `.cursor/skills/verification-engine/SKILL.md`
 - `langchain-development` → `.cursor/skills/langchain-development/SKILL.md`
+- `ssh-deployment` → `.cursor/skills/ssh-deployment/SKILL.md` — SSH операции на VPS (dev/production)
 
