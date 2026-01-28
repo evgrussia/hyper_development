@@ -1,0 +1,24 @@
+# Document Summary: Frontend (frontend/)
+# Level 2 — контекст-экономия, см. context-manager SKILL
+
+document_summary:
+  path: "frontend/"
+  type: "codebase"
+
+  key_points:
+    - "SPA: лендинг (Hero, ValueProposition, Services, Portfolio, About, Personas, TechStack, OrderForm, Metrics, Roadmap) + админка (Portfolio, Services, Modules, Sections, Orders)."
+    - "Стек: Vite 6, React 18, Tailwind 4, Radix UI, Motion, Lucide. DataContext + localStorage (демо); интеграция с Django API — в планах."
+    - "Типы: Service, PortfolioItem, OrderModule, Order, LandingSection. Order (name, contact, modules) — маппинг к доменной модели при API."
+    - "Lazy-loading админки, useMemo/useCallback, debounce localStorage. Design: Liquid Glass 2026, a11y (reduced-motion, focus, ARIA)."
+
+  decisions: []
+
+  related_to:
+    - "context/project-brief.yaml"
+    - "docs/architecture/overview.md"
+    - "docs/architecture/domain-model.md"
+    - "docs/architecture/frontend-audit.md"
+
+metadata:
+  created_by: "Orchestrator Agent"
+  created_at: "2025-01-29"

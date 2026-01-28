@@ -1,0 +1,70 @@
+# Project Brief — Level 0
+# Источник: /start-project
+# Обновлено: 2025-01-28
+
+project:
+  name: "Hyper-Development Agency Site"
+  type: "Портфолио + лендинг + заказ проектов"
+  owner: "Пономарев Евгений (Fullstack / Software Architect)"
+
+vision:
+  one_liner: "Сайт-портфолио агентства Hyper-Development с примерами работ и формой заказа web-приложений."
+  target_audience: "Заказчики web-приложений (стартапы, бизнес, грантодержатели)"
+
+about_developer:
+  name: "Евгений Пономарев"
+  role: "Fullstack-разработчик / Software Architect"
+  experience_years: 20
+  education: "Высшее техническое, прикладная информатика"
+  certification: "Яндекс — Архитектор ПО (2026)"
+  recent_projects: "30+ проектов в продакшен за последние 4 года"
+
+services_high_level:
+  - "Проработка идеи и документация (Продукт, Архитектура, Бизнес, Дизайн, Маркетинг, Исследования)"
+  - "За 24ч: комплект документов, промо-сайт, демо со всеми экранами"
+  - "Разработка под ключ: от идеи до MVP и продакшен"
+  - "MVP-разработка, грантовое сопровождение"
+  - "Рефакторинг (стек, интеграции, монолит → микросервисы/микрофронтенды)"
+  - "Telegram webapp, подготовка к нагрузке (облако, Helm, Kong, Kafka, Istio, CICD)"
+  - "Финтех, распределённые системы (Saga, CQRS)"
+
+tech_positioning:
+  method: "Авторская агентская AI-система"
+  architecture: "DDD, Clean Architecture, модульный MVP"
+  code_quality: "SOLID, DRY, KISS, паттерны"
+  speed: "MVP в эксплуатацию ~через неделю после согласования"
+
+main_features:
+  - "Управление портфолио в админке"
+  - "Управление услугами в админке"
+  - "Управление секциями лендинга в админке"
+  - "Заказ проекта с лендинга с выбором модулей (модули редактируются в админке)"
+  - "Управление заказами в админке"
+
+# Решения по уточняющим вопросам (2025-01-28)
+decisions:
+  domain: "hyper-development.ru"
+  hosting: "VPS"
+  vps_ip: "213.159.67.199"
+  locale: "ru"
+  order_modules_source: "админка (редактируемый список)"
+  design_direction: "Самый современный и трендовый дизайн 2026"
+  stack:
+    frontend: "Vite + React"
+    backend: "Django"
+  order_notifications: "Только Telegram bot (webapp); chat_id=219800788, контакт @evgrussia"
+
+phase: "Design & Architecture + Frontend добавлен"
+next_step: "Разработка MVP: интеграция frontend с Django API, деплой на VPS"
+
+# Артефакты (обновлено 2025-01-29)
+artifacts:
+  frontend: "frontend/"   # SPA: лендинг + админка (Vite+React)
+  frontend_audit: "docs/architecture/frontend-audit.md"
+  docs: "docs/"
+  context: "context/"
+
+metadata:
+  created_by: "Orchestrator Agent"
+  created_at: "2025-01-28"
+  updated_at: "2025-01-29"  # frontend добавлен, аудит, привязка к проекту
