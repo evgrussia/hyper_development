@@ -6,8 +6,8 @@ import { usePrefersReducedMotion } from '@/hooks/useMediaQuery';
 import { ImageWithFallback } from '@/app/components/figma/ImageWithFallback';
 import { AboutBackground } from '@/components/backgrounds/AboutBackground';
 
-// Фото разработчика: public/developer-photo.png (при отсутствии показывается fallback)
-const developerPhoto = '/developer-photo.png';
+// Фото разработчика: public/developer-photo.svg (при добавлении .png можно сменить на /developer-photo.png)
+const developerPhoto = '/developer-photo.svg';
 
 export function About() {
   const scrollToOrder = () => {
@@ -50,9 +50,10 @@ export function About() {
                   {/* Gradient overlay */}
                   <div className="absolute inset-0 bg-gradient-to-t from-background/60 via-transparent to-transparent opacity-60 z-10" />
                   
-                  {/* Photo */}
+                  {/* Photo: .png при наличии, иначе .svg плейсхолдер */}
                   <ImageWithFallback
                     src={developerPhoto}
+                    fallbackSrc="/developer-photo.png"
                     alt="Евгений Пономарев - Fullstack Developer"
                     className="w-full h-full object-cover object-center"
                     loading="eager"

@@ -93,10 +93,22 @@ git checkout <предыдущий_коммит>
 docker compose build && docker compose up -d
 ```
 
+## API отправки заказа (`/api/send-order`)
+
+Логика приёма заявок реализована в **Vercel serverless**: `frontend/api/send-order.ts`. На VPS в Docker запускается только **статический фронт** (nginx + Vite build), поэтому POST на `https://hyper-development.ru/api/send-order` попадает в nginx контейнера и возвращает **405 Not Allowed**.
+
+**Варианты решения:**
+
+1. **Проксировать `/api/` на внешний endpoint** (например, Vercel) — в nginx добавить `location /api/` с `proxy_pass` на URL, где развёрнута serverless-функция.
+2. **Завести на VPS отдельный API-сервис** (например, Node), реализующий ту же логику, что и `send-order.ts`; в nginx проксировать `location /api/` на этот сервис; в `docker-compose.yml` добавить сервис и порт.
+3. **Сборка с `VITE_ORDER_API_URL`** — указать при сборке фронта URL готового API (Vercel или другой), тогда форма будет слать запросы на этот URL; nginx не меняется.
+
+См. задачу для DevOps ниже (handoff).
+
 ## Важно
 
 - Не трогать порты 80, 443, 8082, 8083, 8084 — они заняты psychology, biomax, hyper_invest.
-- Фото разработчика: положить файл в `frontend/public/developer-photo.png` или заменить URL в `About.tsx`; иначе отображается fallback.
+- Фото разработчика: по умолчанию используется `frontend/public/developer-photo.svg` (URL: `/developer-photo.svg`). Чтобы использовать PNG, добавьте `developer-photo.png` в `public/` и смените URL в `About.tsx`.
 
 ---
 *Документ создан: DevOps Agent | Дата: 2025-01-29*
