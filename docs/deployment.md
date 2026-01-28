@@ -40,39 +40,39 @@ docker ps --filter name=hyper_development
 curl -s http://127.0.0.1:8085/health   # должно вернуть "ok"
 ```
 
-## Nginx: привязка домена hyper-development.ru
+## Nginx и SSL: завершение деплоя (один раз на VPS)
 
-На VPS уже работают 80/443 и другие проекты. Нужно добавить **виртуальный хост** для hyper-development.ru, проксирующий на `127.0.0.1:8085`.
+Конфиг и скрипт уже лежат на сервере в `/home/deploy/hyper_development/deploy/`. Домен привязан; осталось включить Nginx и выдать сертификат.
 
-Пример конфига (создать от root, например `/etc/nginx/sites-available/hyper-development.ru`):
-
-```nginx
-server {
-    listen 80;
-    listen [::]:80;
-    server_name hyper-development.ru www.hyper-development.ru;
-
-    location / {
-        proxy_pass http://127.0.0.1:8085;
-        proxy_http_version 1.1;
-        proxy_set_header Host $host;
-        proxy_set_header X-Real-IP $remote_addr;
-        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-        proxy_set_header X-Forwarded-Proto $scheme;
-    }
-}
-```
-
-Включить и перезагрузить Nginx:
+**Выполните на VPS один раз (потребуется пароль sudo):**
 
 ```bash
+sudo bash /home/deploy/hyper_development/deploy/complete-nginx-and-ssl.sh
+```
+
+Скрипт:
+1. Копирует `deploy/nginx-hyper-development.ru.conf` в `/etc/nginx/sites-available/hyper-development.ru`
+2. Включает сайт (symlink в sites-enabled)
+3. Проверяет конфиг (`nginx -t`) и перезагружает Nginx
+4. Запускает Certbot для SSL (hyper-development.ru и www.hyper-development.ru)
+5. Перезагружает Nginx после выдачи сертификата
+
+После выполнения сайт будет доступен по **https://hyper-development.ru** и **https://www.hyper-development.ru**.
+
+Для уведомлений Let's Encrypt по email (опционально):  
+`sudo CERTBOT_EMAIL=your@email.com bash /home/deploy/hyper_development/deploy/complete-nginx-and-ssl.sh`
+
+---
+
+### Ручные шаги (если скрипт не использовать)
+
+Конфиг в репозитории: `deploy/nginx-hyper-development.ru.conf` (прокси на 127.0.0.1:8085).
+
+```bash
+# На VPS
+sudo cp /home/deploy/hyper_development/deploy/nginx-hyper-development.ru.conf /etc/nginx/sites-available/hyper-development.ru
 sudo ln -sf /etc/nginx/sites-available/hyper-development.ru /etc/nginx/sites-enabled/
 sudo nginx -t && sudo systemctl reload nginx
-```
-
-После настройки DNS (A-запись hyper-development.ru → 213.159.67.199) — запросить SSL (Let's Encrypt):
-
-```bash
 sudo certbot --nginx -d hyper-development.ru -d www.hyper-development.ru
 ```
 

@@ -22,7 +22,7 @@ created_at: "2025-01-29"
 - Репозиторий склонирован в `/home/deploy/hyper_development`; Docker-файлы загружены; сборка и запуск контейнера выполнены.
 - Контейнер `hyper_development-frontend` работает на 0.0.0.0:8085, healthcheck `/health` возвращает "ok".
 
-**Домен hyper-development.ru:** Nginx-виртуальный хост ещё не добавлен; инструкция в `docs/deployment.md`.
+**Домен hyper-development.ru:** Конфиг Nginx и скрипт завершения деплоя подготовлены; для активации нужен один запуск с sudo на VPS (см. ниже).
 
 ## Артефакты
 
@@ -35,7 +35,9 @@ created_at: "2025-01-29"
 | `frontend/src/main.tsx` | React entry |
 | `frontend/package.json` | react/react-dom в dependencies |
 | `frontend/src/components/landing/About.tsx` | ImageWithFallback вместо figma:asset |
-| `docs/deployment.md` | Деплой, Nginx, rollback |
+| `docs/deployment.md` | Деплой, Nginx, SSL, rollback |
+| `deploy/nginx-hyper-development.ru.conf` | Виртуальный хост Nginx (прокси на 8085) |
+| `deploy/complete-nginx-and-ssl.sh` | Скрипт: копирование конфига, включение сайта, certbot |
 
 ## Key decisions
 
@@ -45,10 +47,11 @@ created_at: "2025-01-29"
 
 ## Next actions
 
-1. Закоммитить и запушить в репозиторий: Docker-файлы, index.html, main.tsx, package.json, About.tsx, docs/deployment.md — чтобы дальнейший деплой был только через git pull.
-2. Добавить виртуальный хост Nginx для hyper-development.ru (proxy_pass на 127.0.0.1:8085), перезагрузить Nginx.
-3. Настроить DNS (A-запись hyper-development.ru → 213.159.67.199) и при необходимости SSL (certbot).
-4. Положить фото разработчика в `frontend/public/developer-photo.png` или заменить URL в About.tsx.
+1. **На VPS выполнить один раз (завершение деплоя):**  
+   `sudo bash /home/deploy/hyper_development/deploy/complete-nginx-and-ssl.sh`  
+   — копирует конфиг Nginx, включает сайт, выдаёт SSL (certbot). После этого сайт будет по https://hyper-development.ru.
+2. Закоммитить и запушить в репозиторий: Docker-файлы, deploy/, docs/deployment.md — чтобы дальнейший деплой был только через git pull.
+3. Положить фото разработчика в `frontend/public/developer-photo.png` или заменить URL в About.tsx.
 
 ## Blockers
 
