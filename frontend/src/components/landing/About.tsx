@@ -3,8 +3,11 @@ import { Button } from '@/app/components/ui/button';
 import { motion } from 'motion/react';
 import { Reveal } from '@/components/common/Reveal';
 import { usePrefersReducedMotion } from '@/hooks/useMediaQuery';
-import developerPhoto from 'figma:asset/c46054db3aa533f805bda4633c0fa455200a4cca.png';
+import { ImageWithFallback } from '@/app/components/figma/ImageWithFallback';
 import { AboutBackground } from '@/components/backgrounds/AboutBackground';
+
+// Фото разработчика: положите свой файл в public/developer-photo.png или замените URL
+const developerPhoto = '/developer-photo.png';
 
 export function About() {
   const scrollToOrder = () => {
@@ -48,7 +51,7 @@ export function About() {
                   <div className="absolute inset-0 bg-gradient-to-t from-background/60 via-transparent to-transparent opacity-60 z-10" />
                   
                   {/* Photo */}
-                  <img
+                  <ImageWithFallback
                     src={developerPhoto}
                     alt="Евгений Пономарев - Fullstack Developer"
                     className="w-full h-full object-cover object-center"

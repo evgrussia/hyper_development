@@ -1,0 +1,20 @@
+# Hyper-Development Agency Site — production
+# Домен: hyper-development.ru | Порт на VPS: 8085 (стандартные заняты другими проектами)
+# Деплой: git pull && docker compose build && docker compose up -d
+
+services:
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    image: hyper_development-frontend
+    container_name: hyper_development-frontend
+    restart: unless-stopped
+    ports:
+      - "8085:80"
+    healthcheck:
+      test: ["CMD", "wget", "-q", "-O", "/dev/null", "http://127.0.0.1:80/health"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 10s
