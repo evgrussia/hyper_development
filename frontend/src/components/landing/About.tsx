@@ -50,9 +50,10 @@ export function About() {
                   {/* Gradient overlay */}
                   <div className="absolute inset-0 bg-gradient-to-t from-background/60 via-transparent to-transparent opacity-60 z-10" />
                   
-                  {/* Photo */}
+                  {/* Photo: .png при наличии, иначе .svg плейсхолдер */}
                   <ImageWithFallback
                     src={developerPhoto}
+                    fallbackSrc="/developer-photo.svg"
                     alt="Евгений Пономарев - Fullstack Developer"
                     className="w-full h-full object-cover object-center"
                     loading="eager"
