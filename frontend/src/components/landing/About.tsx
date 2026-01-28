@@ -6,8 +6,8 @@ import { usePrefersReducedMotion } from '@/hooks/useMediaQuery';
 import { ImageWithFallback } from '@/app/components/figma/ImageWithFallback';
 import { AboutBackground } from '@/components/backgrounds/AboutBackground';
 
-// Фото разработчика: положите свой файл в public/developer-photo.png или замените URL
-const developerPhoto = '/developer-photo.png';
+// Фото разработчика: замените на public/developer-photo.png при наличии своего фото
+const developerPhoto = '/developer-photo.svg';
 
 export function About() {
   const scrollToOrder = () => {

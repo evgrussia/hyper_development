@@ -20,7 +20,6 @@ import { OrderForm } from '@/components/landing/OrderForm';
 import { Metrics } from '@/components/landing/Metrics';
 import { Roadmap } from '@/components/landing/Roadmap';
 import { Footer } from '@/components/landing/Footer';
-import { AdminHint } from '@/components/landing/AdminHint';
 
 // Admin components (lazy loaded)
 const Login = lazy(() => import('@/components/admin/Login').then(m => ({ default: m.Login })));
@@ -80,14 +79,12 @@ export default function App() {
       </main>
       <Footer />
       <ScrollToTop />
-      
-      {/* Hidden admin trigger */}
+      {/* Hidden admin trigger: Ctrl+Shift+A or click bottom-right */}
       <button
         onClick={handleAdminAccess}
         className="fixed bottom-4 right-4 w-3 h-3 opacity-0 hover:opacity-10 transition-opacity"
         aria-label="Admin"
       />
-      <AdminHint />
     </>
   );
 

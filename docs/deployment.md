@@ -46,6 +46,15 @@ curl -s http://127.0.0.1:8085/health   # должно вернуть "ok"
 
 **Выполните на VPS один раз (потребуется пароль sudo):**
 
+Если скрипт выдаёт ошибки вида `$'\r': command not found` — сначала исправьте переводы строк (CRLF → LF), затем запустите:
+
+```bash
+sed -i 's/\r$//' /home/deploy/hyper_development/deploy/*.sh /home/deploy/hyper_development/deploy/*.conf
+sudo bash /home/deploy/hyper_development/deploy/complete-nginx-and-ssl.sh
+```
+
+Иначе достаточно:
+
 ```bash
 sudo bash /home/deploy/hyper_development/deploy/complete-nginx-and-ssl.sh
 ```

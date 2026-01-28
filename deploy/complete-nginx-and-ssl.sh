@@ -10,7 +10,10 @@ SITES_ENABLED="/etc/nginx/sites-enabled/hyper-development.ru"
 
 echo ">>> Копирование конфига Nginx..."
 cp "$CONF_SOURCE" "$CONF_DEST"
+sed -i 's/\r$//' "$CONF_DEST"
 
+echo ">>> Удаление старых симлинков hyper-development.ru..."
+rm -f /etc/nginx/sites-enabled/hyper-development.ru*
 echo ">>> Включение сайта..."
 ln -sf "$CONF_DEST" "$SITES_ENABLED"
 
@@ -21,7 +24,6 @@ echo ">>> Перезагрузка Nginx..."
 systemctl reload nginx
 
 echo ">>> Запрос SSL-сертификата (Let's Encrypt)..."
-# Опционально: export CERTBOT_EMAIL=your@email.com перед запуском
 if [ -n "$CERTBOT_EMAIL" ]; then
   certbot --nginx -d hyper-development.ru -d www.hyper-development.ru --non-interactive --agree-tos -m "$CERTBOT_EMAIL"
 else
@@ -31,5 +33,5 @@ fi
 echo ">>> Финальная перезагрузка Nginx..."
 systemctl reload nginx
 
-echo ">>> Готово. Проверка: curl -sI https://hyper-development.ru/"
+echo ">>> Готово."
 curl -sI https://hyper-development.ru/ | head -5
