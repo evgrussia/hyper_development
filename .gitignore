@@ -3,6 +3,9 @@
 .env.local
 .env.*.local
 
+# Django collectstatic
+backend/staticfiles/
+
 # Python
 __pycache__/
 *.py[cod]
