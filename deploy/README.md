@@ -73,7 +73,7 @@ sudo certbot --nginx -d base-api.hyper-development.ru -d base-front.hyper-develo
 
 | Имя | Описание |
 |-----|----------|
-| `PROJECT_PATH` | Путь к проекту на VPS (по умолчанию `/var/www/hyper_development`) |
+| `PROJECT_PATH` | Путь к проекту на VPS (по умолчанию `/home/deploy/hyper_development`) |
 
 Токены (Telegram, GitHub PAT и т.п.) **никогда** не хранить в коде и не добавлять в репо — только в `.env` на сервере или в Secrets по необходимости. После настройки Secrets рекомендуется сменить GitHub PAT.
 

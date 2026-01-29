@@ -29,10 +29,10 @@ created_at: "2025-01-29"
 
 ## Next actions
 
-1. Добавить в GitHub Secrets: `VPS_SSH_KEY`, `VPS_HOST`, `VPS_USER` (и при необходимости Variable `PROJECT_PATH`).
-2. На VPS: клонировать репо, создать `.env` из `deploy/.env.production.example`, настроить Nginx и certbot, проверить Docker.
-3. Настроить DNS (A-записи для доменов на IP VPS).
-4. Выполнить первый деплой (push в main или workflow_dispatch) и проверить frontend/backend по HTTPS.
+1. ~~Добавить в GitHub Secrets: `VPS_SSH_KEY`, `VPS_HOST`, `VPS_USER`~~ (сделано пользователем).
+2. ~~На VPS: клонировать репо, создать `.env`, Nginx (base-api → 8085, base-front → 8010), certbot, Docker~~ (выполнено 2025-01-29).
+3. ~~DNS, первый деплой~~ (готово). Автодеплой: push в main → workflow Deploy.
+4. При смене портов: задать `BACKEND_HOST_PORT`, `FRONTEND_HOST_PORT` в `.env` на VPS и обновить Nginx proxy_pass.
 
 ## Blockers
 
