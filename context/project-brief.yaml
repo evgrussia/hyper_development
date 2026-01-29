@@ -1,0 +1,54 @@
+# Project Brief — Universal Backend for MVP Startups
+# Level 0 context
+
+title: "Универсальный бэкенд для MVP стартапов"
+stack: "React + Django"
+created_by: "Orchestrator Agent"
+created_at: "2025-01-29"
+
+vision: |
+  Отправная точка для быстрого запуска MVP по разным тематикам:
+  авторизация (Telegram web + webapp), ЛК, статьи, витрина товаров,
+  реферальная и партнёрская программы, оплата TON + ЮKassa,
+  системный и персональный AI-агенты (LangChain, RAG), уведомления в Telegram,
+  AI-генерация постов в канал, аналитика, кастомная и Django админки.
+
+scope:
+  - auth_telegram_web: авторизация через Telegram widget (web)
+  - auth_telegram_webapp: авторизация для Telegram WebApp
+  - lk: личный кабинет пользователя
+  - articles: создание и управление статьями
+  - products: витрина товаров
+  - referral: реферальная система
+  - partner: партнёрская программа + аналитика
+  - payments: TON + ЮKassa
+  - business_logic: плагинная бизнес-логика (на проект)
+  - ai_system: системный AI-агент (LangChain, RAG, ЛК)
+  - ai_personal: персональный AI-агент (LangChain, RAG, ЛК)
+  - notifications: уведомления в Telegram
+  - ai_posts: AI-агент генерации постов в канал (исследования + сценарий + расписание)
+  - analytics: аналитика действий для маркетинга и партнёрки
+  - admin_custom: кастомная админка (контент, функции, аналитика)
+  - admin_django: Django admin для всего функционала
+
+phases_overview:
+  - "0. Инфраструктура и каркас (Django + React, БД, CI)"
+  - "1. Авторизация (Telegram web + webapp)"
+  - "2. Ядро: пользователи, ЛК, роли"
+  - "3. Контент: статьи, витрина товаров"
+  - "4. Реферальная и партнёрская системы"
+  - "5. Платежи (TON, ЮKassa)"
+  - "6. Бизнес-логика (плагинная архитектура)"
+  - "7. AI: системный и персональный агенты, RAG"
+  - "8. Уведомления и AI-посты в Telegram"
+  - "9. Аналитика и отчёты"
+  - "10. Админки (кастомная + Django)"
+
+artifacts_plan:
+  - "context/implementation-plan-universal-backend.md (полный план)"
+  - "context/summaries/phase-*.md (по фазам)"
+
+next_actions:
+  - "Утвердить план с заказчиком"
+  - "Создать репозиторий и базовую структуру (Phase 0)"
+  - "Делегировать Phase 1 Architect + Coder"

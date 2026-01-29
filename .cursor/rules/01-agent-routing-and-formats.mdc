@@ -26,6 +26,10 @@ alwaysApply: true
 - **Review / QA**: верификация 100% по спекам, качество кода, покрытие тестами, тест-стратегия/прогон, деплой-тестирование на VPS (SSH).
 - **DevOps / SRE / Marketing**: CI/CD/IaC/deploy, мониторинг/SLO/runbooks, go-to-market и контент-план.
 - **CI/CD с GitHub / GitHub Actions:** навык `github-actions` (`.cursor/skills/github-actions/SKILL.md`). **Перед работой** — запросить у пользователя ключ доступа к GitHub-репо.
+- **Telegram Bot API (разработка/интеграция ботов):** навык `telegram-bot-api` (`.cursor/skills/telegram-bot-api/SKILL.md`). Работа на уровне Senior/Lead по официальной документации. Токен бота — только из окружения или по запросу пользователя.
+- **Telegram Core API (MTProto, кастомные клиенты, TDLib):** навык `telegram-core-api` (`.cursor/skills/telegram-core-api/SKILL.md`). Уровень Senior/Lead, Best Practice и Security Guidelines. api_id/api_hash — только из окружения или по запросу пользователя.
+- **TON Blockchain (Ton API, Ton Console, dApp, Jettons, NFT, переводы, трекинг):** навык `ton-blockchain` (`.cursor/skills/ton-blockchain/SKILL.md`). Работа на уровне Senior/Lead по документации docs.tonconsole.com. API-ключ — только из окружения или TonConsole, никогда в коде/репо.
+- **YooKassa (приём платежей в рублях, оплата, возвраты, чеки):** навык `yookassa-payments` (`.cursor/skills/yookassa-payments/SKILL.md`). Работа на уровне Senior/Lead по документации yookassa.ru/developers. Shop ID и Secret Key — только из окружения или по запросу пользователя.
 
 ## Критическое правило делегирования
 
@@ -44,6 +48,10 @@ alwaysApply: true
 | "Настрой сервер/инфраструктуру" | DevOps Agent |
 | "Диагностика сервера/incident" | SRE Agent |
 | "Debug на сервере/hotfix" | Coder Agent (dev) или DevOps Agent (prod) |
+| "Реализовать Telegram-бота / интеграция Bot API" | Coder Agent (навык telegram-bot-api) |
+| "Клиент на MTProto / TDLib / Core API, работа с Telegram Core API" | Coder Agent (навык telegram-core-api) |
+| "Реализация/интеграция с TON, dApp на TON, Ton API, Jettons, NFT, переводы TON" | Coder Agent (навык ton-blockchain) |
+| "Приём платежей в рублях, YooKassa, оплата, возвраты, чеки 54-ФЗ" | Coder Agent (навык yookassa-payments) |
 | Любая специализированная работа | Соответствующий агент |
 
 ## Формат handoff (когда "передаёшь" задачу роли)

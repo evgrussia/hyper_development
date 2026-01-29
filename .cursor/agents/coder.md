@@ -27,6 +27,10 @@ Senior Full-Stack Developer. Реализует код по технически
 ## Навыки (Skills)
 
 - **SSH Deployment** → `.cursor/skills/ssh-deployment/SKILL.md` — для server debug
+- **Telegram Bot API** → `.cursor/skills/telegram-bot-api/SKILL.md` — боты, webhooks, long polling
+- **Telegram Core API (MTProto)** → `.cursor/skills/telegram-core-api/SKILL.md` — кастомные клиенты, TDLib, MTProto; Senior/Lead, Security Guidelines
+- **TON Blockchain** → `.cursor/skills/ton-blockchain/SKILL.md` — Ton API, Ton Console, dApp, Jettons, NFT, переводы, трекинг; Senior/Lead, Best Practice из docs.tonconsole.com
+- **YooKassa (YooMoney API)** → `.cursor/skills/yookassa-payments/SKILL.md` — приём платежей в рублях, создание платежей, подтверждение, возвраты, webhooks, чеки 54-ФЗ; Senior/Lead, Best Practice; Shop ID и Secret Key только из env или по запросу
 
 ## Server Debug (SSH)
 

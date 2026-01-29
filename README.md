@@ -4,6 +4,31 @@
 
 ---
 
+## Универсальный бэкенд MVP (монорепо)
+
+В корне репозитория — монорепо **React (frontend) + Django (backend)** для быстрого запуска MVP.
+
+| Каталог / файл | Назначение |
+|----------------|------------|
+| `backend/` | Django: config, users, core, content, payments, referral, partners, ai, notifications, analytics, admin_custom |
+| `frontend/` | React (Vite), React Router, базовый layout |
+| `docker-compose.yml` | PostgreSQL, backend (Django), frontend (nginx) |
+| `.env.example` | Переменные окружения (скопировать в `.env`) |
+
+**Быстрый старт (Phase 0):**
+
+```bash
+cp .env.example .env
+docker-compose up --build
+```
+
+- **Frontend:** http://localhost:3000  
+- **Backend API:** http://localhost:8000/api (APIRootView: список эндпоинтов)
+
+Локальная разработка без Docker: см. `backend/README.md` и `frontend/README.md`.
+
+---
+
 ## Обзор
 
 Cursor Agent System — это модульная система виртуальных агентов, которая помогает вести проект от идеи до продакшна. Система реализована как набор спецификаций и правил для работы в Cursor IDE, где AI-ассистент может "переключаться" между ролями специалистов.
