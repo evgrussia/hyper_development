@@ -18,6 +18,26 @@ description: SSH операции на VPS серверах Ubuntu 24.04 (dev/pr
 - Проверять логи и состояние
 - Выполнять rollback
 
+## Доступ к VPS: MCP и Git-only деплой
+
+### MCP (user-biomax-vps)
+
+Доступ к VPS может выполняться через **MCP** `user-biomax-vps`: `execute-command`, `list-servers`, `download`, `upload`. Использовать вместо `ssh` в терминале, когда MCP подключён.
+
+### Изменения файлов только через Git
+
+**Все** добавления и изменения файлов проекта на VPS — **только через Git** (см. правило в `.cursor/rules/03-ssh-operations.mdc`):
+
+1. **Локально:** `git add` → `git commit` → `git push`
+2. **На VPS:** в каталоге проекта `git pull` (или `fetch` + `checkout`)
+3. **На VPS:** затем build, restart, миграции и т.д.
+
+Не использовать `upload` MCP для файлов проекта. `download` — допустим для логов, дампов, конфигов (только чтение).
+
+### CI/CD с GitHub Actions
+
+Для настройки CI/CD (workflows, secrets, деплой через GitHub) использовать навык **`.cursor/skills/github-actions/SKILL.md`**. Перед работой — запросить у пользователя ключ доступа к GitHub-репо.
+
 ## Конфигурация серверов
 
 ### Рекомендуемая структура конфига
@@ -97,6 +117,10 @@ ssh dev-server "tail -100 /var/log/app/error.log"
 
 ## Сценарии деплоя
 
+### Обязательный порядок (Git-only)
+
+Перед любым деплоем: **сначала локально** `git add` → `commit` → `push`, **затем на сервере** `git pull` и только потом build/restart. Не вносить изменения в файлы проекта напрямую на VPS.
+
 ### Сценарий 1: Docker Compose деплой
 
 ```bash
@@ -109,8 +133,9 @@ PROJECT_PATH="${2:-/var/www/app}"
 BRANCH="${3:-main}"
 
 echo "=== Deploying to $SERVER ==="
+echo ">>> Предварительно: локально git add, commit, push. Затем на сервере — pull и шаги ниже."
 
-# 1. Подключение и обновление кода
+# 1. Подключение и обновление кода (только pull; изменения — уже в репо)
 ssh $SERVER << EOF
     set -e
     cd $PROJECT_PATH

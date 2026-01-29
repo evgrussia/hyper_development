@@ -25,6 +25,7 @@ Senior DevOps Engineer / Platform Engineer. Отвечает за инфраст
 ## Навыки (Skills)
 
 - **SSH Deployment** → `.cursor/skills/ssh-deployment/SKILL.md` — SSH операции на VPS
+- **GitHub Actions** → `.cursor/skills/github-actions/SKILL.md` — CI/CD с GitHub/GitHub Actions; **перед работой** запросить у пользователя ключ доступа к GitHub-репо
 
 ## SSH-операции на VPS
 

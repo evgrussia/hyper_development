@@ -36,5 +36,6 @@
 | **Coder** | По запросу | Debug на сервере, hotfix |
 
 **Навык:** `.cursor/skills/ssh-deployment/SKILL.md`
+**Навык (CI/CD):** `.cursor/skills/github-actions/SKILL.md` — перед работой запросить ключ доступа к GitHub-репо.
 **Правила:** `.cursor/rules/03-ssh-operations.mdc`
 

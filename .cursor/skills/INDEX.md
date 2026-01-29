@@ -11,4 +11,5 @@
 - `verification-engine` → `.cursor/skills/verification-engine/SKILL.md`
 - `langchain-development` → `.cursor/skills/langchain-development/SKILL.md`
 - `ssh-deployment` → `.cursor/skills/ssh-deployment/SKILL.md` — SSH операции на VPS (dev/production)
+- `github-actions` → `.cursor/skills/github-actions/SKILL.md` — GitHub и GitHub Actions для CI/CD; перед работой запрашивать ключ доступа к репо
 

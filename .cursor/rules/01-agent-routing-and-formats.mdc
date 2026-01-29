@@ -25,6 +25,7 @@ alwaysApply: true
 - **Coder**: реализация кода по спекам, тесты, баги, рефакторинг, архитектурные изменения.
 - **Review / QA**: верификация 100% по спекам, качество кода, покрытие тестами, тест-стратегия/прогон, деплой-тестирование на VPS (SSH).
 - **DevOps / SRE / Marketing**: CI/CD/IaC/deploy, мониторинг/SLO/runbooks, go-to-market и контент-план.
+- **CI/CD с GitHub / GitHub Actions:** навык `github-actions` (`.cursor/skills/github-actions/SKILL.md`). **Перед работой** — запросить у пользователя ключ доступа к GitHub-репо.
 
 ## Критическое правило делегирования
 
