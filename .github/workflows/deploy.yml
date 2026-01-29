@@ -30,9 +30,9 @@ jobs:
             git checkout main 2>/dev/null || git checkout master
             git pull origin main 2>/dev/null || git pull origin master
             echo ">>> Build and up..."
-            docker compose -f docker-compose.yml -f docker-compose.prod.yml --env-file .env up -d --build
+            docker compose --env-file .env up -d --build
             echo ">>> Containers:"
-            docker compose -f docker-compose.yml -f docker-compose.prod.yml ps
+            docker compose --env-file .env ps
             echo ">>> Health check (backend /api/)..."
             sleep 10
             curl -sf http://127.0.0.1:8010/api/ -o /dev/null || true
