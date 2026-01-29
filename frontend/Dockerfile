@@ -9,7 +9,9 @@ RUN npm ci 2>/dev/null || npm install
 
 COPY . .
 ARG VITE_API_BASE_URL=http://localhost:8000/api
+ARG VITE_TELEGRAM_BOT_NAME=
 ENV VITE_API_BASE_URL=$VITE_API_BASE_URL
+ENV VITE_TELEGRAM_BOT_NAME=$VITE_TELEGRAM_BOT_NAME
 RUN npm run build
 
 # Serve stage — nginx
