@@ -1,0 +1,13 @@
+# Override для production на VPS (порты без конфликтов с другими проектами)
+# Запуск: docker compose -f docker-compose.yml -f docker-compose.prod.yml --env-file .env up -d --build
+
+services:
+  frontend:
+    ports:
+      - "8085:80"
+  backend:
+    ports:
+      - "8010:8000"
+  db:
+    ports:
+      - "127.0.0.1:5433:5432"

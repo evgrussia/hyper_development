@@ -1,0 +1,38 @@
+# CI/CD — деплой на VPS при push в main/master
+# Требуется: Secrets VPS_SSH_KEY, VPS_HOST, VPS_USER; опционально VARS PROJECT_PATH
+# Деплой только через Git: на сервере git pull → docker compose up (см. .cursor/rules/03-ssh-operations)
+
+name: Deploy
+
+on:
+  push:
+    branches: [main, master]
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy via SSH
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.VPS_HOST }}
+          username: ${{ secrets.VPS_USER }}
+          key: ${{ secrets.VPS_SSH_KEY }}
+          port: "22"
+          command_timeout: "20m"
+          script: |
+            set -e
+            PROJECT_PATH="${{ vars.PROJECT_PATH || '/home/deploy/hyper_development' }}"
+            cd "$PROJECT_PATH" || { echo "Project path not found: $PROJECT_PATH"; exit 1; }
+            echo ">>> Fetch and pull..."
+            git fetch origin
+            git checkout main 2>/dev/null || git checkout master
+            git pull origin main 2>/dev/null || git pull origin master
+            echo ">>> Build and up..."
+            docker compose -f docker-compose.yml -f docker-compose.prod.yml --env-file .env up -d --build
+            echo ">>> Containers:"
+            docker compose -f docker-compose.yml -f docker-compose.prod.yml ps
+            echo ">>> Health check (backend /api/)..."
+            sleep 10
+            curl -sf http://127.0.0.1:8010/api/ -o /dev/null || true
