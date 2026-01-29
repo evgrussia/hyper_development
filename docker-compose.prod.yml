@@ -8,5 +8,3 @@ services:
   backend:
     ports:
       - "8010:8000"
-  db:
-    ports: []   # не публикуем 5432 на host; backend ходит в db по внутренней сети
