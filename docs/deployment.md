@@ -20,7 +20,10 @@ created_at: "2025-01-29"
 ## Docker-инфраструктура
 
 - **frontend/Dockerfile** — multi-stage: Node 20 (Vite build) → Nginx Alpine (раздача статики).
-- **docker-compose.yml** — один сервис `frontend`, порт 8085:80, healthcheck `/health`.
+- **api/Dockerfile** — Node 20 Alpine, сервис POST /send-order → Telegram.
+- **docker-compose.yml** — сервисы `frontend` (порт 8085:80), `order-api` (порт 8086:3000).
+
+Перед деплоем задайте на VPS переменные для order-api: `TELEGRAM_BOT_TOKEN` (обязательно), `TELEGRAM_CHAT_ID` (опционально, по умолчанию 219800788). Nginx проксирует `/api/` на 127.0.0.1:8086.
 
 ## Деплой (только через git)
 
@@ -38,6 +41,7 @@ docker compose up -d
 ```bash
 docker ps --filter name=hyper_development
 curl -s http://127.0.0.1:8085/health   # должно вернуть "ok"
+curl -s -X POST http://127.0.0.1:8086/send-order -H "Content-Type: application/json" -d '{"name":"Test","contact":"+7"}'  # без токена — 500, с токеном — 200
 ```
 
 ## Nginx и SSL: завершение деплоя (один раз на VPS)

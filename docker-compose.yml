@@ -1,6 +1,7 @@
 # Hyper-Development Agency Site — production
-# Домен: hyper-development.ru | Порт на VPS: 8085 (стандартные заняты другими проектами)
+# Домен: hyper-development.ru | Порт на VPS: 8085 (frontend), 8086 (order-api)
 # Деплой: git pull && docker compose build && docker compose up -d
+# Env для order-api на VPS: TELEGRAM_BOT_TOKEN (обязательно), TELEGRAM_CHAT_ID (опционально)
 
 services:
   frontend:
@@ -18,3 +19,16 @@ services:
       timeout: 5s
       retries: 3
       start_period: 10s
+
+  order-api:
+    build:
+      context: ./api
+      dockerfile: Dockerfile
+    image: hyper_development-order-api
+    container_name: hyper_development-order-api
+    restart: unless-stopped
+    ports:
+      - "8086:3000"
+    environment:
+      - TELEGRAM_BOT_TOKEN=${TELEGRAM_BOT_TOKEN}
+      - TELEGRAM_CHAT_ID=${TELEGRAM_CHAT_ID:-219800788}
