@@ -1,9 +1,20 @@
+import { Link, useLocation } from 'react-router-dom';
 import { Send } from 'lucide-react';
 
 export function Footer() {
+  const location = useLocation();
+  const isAIConceptPage = location.pathname === '/ai-concept';
+
   const scrollToSection = (id: string) => {
     document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
   };
+
+  const navLinks = [
+    { id: 'services', label: 'Услуги' },
+    { id: 'portfolio', label: 'Портфолио' },
+    { id: 'about', label: 'О разработчике' },
+    { id: 'order', label: 'Заказать' },
+  ];
 
   const openAdmin = () => {
     if (typeof window !== 'undefined' && (window as any).openAdmin) {
@@ -29,30 +40,35 @@ export function Footer() {
           <div>
             <h4 className="font-semibold mb-4">Навигация</h4>
             <div className="space-y-2">
-              <button
-                onClick={() => scrollToSection('services')}
-                className="block text-sm text-foreground/70 hover:text-primary transition-colors"
-              >
-                Услуги
-              </button>
-              <button
-                onClick={() => scrollToSection('portfolio')}
-                className="block text-sm text-foreground/70 hover:text-primary transition-colors"
-              >
-                Портфолио
-              </button>
-              <button
-                onClick={() => scrollToSection('about')}
-                className="block text-sm text-foreground/70 hover:text-primary transition-colors"
-              >
-                О разработчике
-              </button>
-              <button
-                onClick={() => scrollToSection('order')}
-                className="block text-sm text-foreground/70 hover:text-primary transition-colors"
-              >
-                Заказать
-              </button>
+              {isAIConceptPage ? (
+                <>
+                  <Link
+                    to="/"
+                    className="block text-sm text-foreground/70 hover:text-primary transition-colors"
+                  >
+                    На главную
+                  </Link>
+                  {navLinks.map(({ id, label }) => (
+                    <Link
+                      key={id}
+                      to={`/#${id}`}
+                      className="block text-sm text-foreground/70 hover:text-primary transition-colors"
+                    >
+                      {label}
+                    </Link>
+                  ))}
+                </>
+              ) : (
+                navLinks.map(({ id, label }) => (
+                  <button
+                    key={id}
+                    onClick={() => scrollToSection(id)}
+                    className="block text-sm text-foreground/70 hover:text-primary transition-colors text-left w-full"
+                  >
+                    {label}
+                  </button>
+                ))
+              )}
             </div>
           </div>
 

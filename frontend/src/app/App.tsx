@@ -1,6 +1,6 @@
-import { useState, lazy, Suspense } from 'react';
-import { DataProvider } from '@/contexts/DataContext';
-import { useEffect } from 'react';
+import { useState, lazy, Suspense, useEffect } from 'react';
+import { Routes, Route, useLocation } from 'react-router-dom';
+import { DataProvider, useData } from '@/contexts/DataContext';
 import { Toaster } from 'sonner';
 
 // Common components (loaded immediately)
@@ -11,6 +11,7 @@ import { ScrollToTop } from '@/components/common/ScrollToTop';
 import { Header } from '@/components/landing/Header';
 import { Hero } from '@/components/landing/Hero';
 import { ValueProposition } from '@/components/landing/ValueProposition';
+import { AIConceptModule } from '@/components/landing/AIConceptModule';
 import { Services } from '@/components/landing/Services';
 import { Portfolio } from '@/components/landing/Portfolio';
 import { About } from '@/components/landing/About';
@@ -20,6 +21,7 @@ import { OrderForm } from '@/components/landing/OrderForm';
 import { Metrics } from '@/components/landing/Metrics';
 import { Roadmap } from '@/components/landing/Roadmap';
 import { Footer } from '@/components/landing/Footer';
+import { AgentSystemLanding } from '@/pages/AgentSystemLanding';
 
 // Admin components (lazy loaded)
 const Login = lazy(() => import('@/components/admin/Login').then(m => ({ default: m.Login })));
@@ -32,6 +34,48 @@ const OrdersList = lazy(() => import('@/components/admin/OrdersList').then(m => 
 
 type View = 'landing' | 'admin';
 type AdminPage = 'portfolio' | 'services' | 'modules' | 'sections' | 'orders';
+
+function MainLandingContent() {
+  const { landingSections } = useData();
+  const location = useLocation();
+  const showAIConcept = landingSections.some(s => s.key === 'ai_concept' && s.isActive);
+
+  // Прокрутка к якорю при переходе с /ai-concept на /#section
+  useEffect(() => {
+    const hash = location.hash?.slice(1);
+    if (hash) {
+      const el = document.getElementById(hash);
+      if (el) setTimeout(() => el.scrollIntoView({ behavior: 'smooth' }), 100);
+    }
+  }, [location.pathname, location.hash]);
+
+  return (
+    <>
+      <ScrollProgress />
+      <Header />
+      <main>
+        <Hero />
+        <ValueProposition />
+        {showAIConcept && <AIConceptModule />}
+        <Services />
+        <Portfolio />
+        <About />
+        <Personas />
+        <TechStack />
+        <OrderForm />
+        <Metrics />
+        <Roadmap />
+      </main>
+      <Footer />
+      <ScrollToTop />
+      <button
+        onClick={() => (window as any).openAdmin?.()}
+        className="fixed bottom-4 right-4 w-3 h-3 opacity-0 hover:opacity-10 transition-opacity"
+        aria-label="Admin"
+      />
+    </>
+  );
+}
 
 export default function App() {
   const [view, setView] = useState<View>('landing');
@@ -61,31 +105,11 @@ export default function App() {
     }
   }, []);
 
-  const renderLanding = () => (
-    <>
-      <ScrollProgress />
-      <Header />
-      <main>
-        <Hero />
-        <ValueProposition />
-        <Services />
-        <Portfolio />
-        <About />
-        <Personas />
-        <TechStack />
-        <OrderForm />
-        <Metrics />
-        <Roadmap />
-      </main>
-      <Footer />
-      <ScrollToTop />
-      {/* Hidden admin trigger: Ctrl+Shift+A or click bottom-right */}
-      <button
-        onClick={handleAdminAccess}
-        className="fixed bottom-4 right-4 w-3 h-3 opacity-0 hover:opacity-10 transition-opacity"
-        aria-label="Admin"
-      />
-    </>
+  const renderRoutes = () => (
+    <Routes>
+      <Route path="/ai-concept" element={<AgentSystemLanding />} />
+      <Route path="/*" element={<MainLandingContent />} />
+    </Routes>
   );
 
   const renderAdmin = () => {
@@ -135,7 +159,7 @@ export default function App() {
   return (
     <DataProvider>
       <div className="min-h-screen text-foreground">
-        {view === 'landing' ? renderLanding() : renderAdmin()}
+        {view === 'landing' ? renderRoutes() : renderAdmin()}
         <Toaster />
       </div>
     </DataProvider>

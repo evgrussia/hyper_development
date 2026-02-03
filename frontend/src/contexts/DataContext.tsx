@@ -92,12 +92,13 @@ const initialOrderModules: OrderModule[] = [
 const initialLandingSections: LandingSection[] = [
   { key: 'hero', name: 'Герой', isActive: true, order: 1 },
   { key: 'value', name: 'Ценность', isActive: true, order: 2 },
-  { key: 'services', name: 'Услуги', isActive: true, order: 3 },
-  { key: 'portfolio', name: 'Портфолио', isActive: true, order: 4 },
-  { key: 'about', name: 'О разработчике', isActive: true, order: 5 },
-  { key: 'personas', name: 'Для кого', isActive: true, order: 6 },
-  { key: 'tech', name: 'Стек', isActive: true, order: 7 },
-  { key: 'order', name: 'Форма заказа', isActive: true, order: 8 },
+  { key: 'ai_concept', name: 'AI-концепция', isActive: true, order: 3 },
+  { key: 'services', name: 'Услуги', isActive: true, order: 4 },
+  { key: 'portfolio', name: 'Портфолио', isActive: true, order: 5 },
+  { key: 'about', name: 'О разработчике', isActive: true, order: 6 },
+  { key: 'personas', name: 'Для кого', isActive: true, order: 7 },
+  { key: 'tech', name: 'Стек', isActive: true, order: 8 },
+  { key: 'order', name: 'Форма заказа', isActive: true, order: 9 },
 ];
 
 export function DataProvider({ children }: { children: ReactNode }) {
@@ -130,7 +131,15 @@ export function DataProvider({ children }: { children: ReactNode }) {
 
   const [landingSections, setLandingSections] = useState<LandingSection[]>(() => {
     const saved = localStorage.getItem('landingSections');
-    return saved ? JSON.parse(saved) : initialLandingSections;
+    const parsed = saved ? JSON.parse(saved) : initialLandingSections;
+    const hasAIConcept = parsed.some((s: LandingSection) => s.key === 'ai_concept');
+    if (!hasAIConcept) {
+      const aiConcept = initialLandingSections.find(s => s.key === 'ai_concept');
+      if (aiConcept) {
+        return [...parsed, aiConcept].sort((a, b) => a.order - b.order);
+      }
+    }
+    return parsed;
   });
 
   // Debounce values for localStorage
