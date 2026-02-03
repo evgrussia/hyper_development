@@ -18,8 +18,6 @@ import { About } from '@/components/landing/About';
 import { Personas } from '@/components/landing/Personas';
 import { TechStack } from '@/components/landing/TechStack';
 import { OrderForm } from '@/components/landing/OrderForm';
-import { Metrics } from '@/components/landing/Metrics';
-import { Roadmap } from '@/components/landing/Roadmap';
 import { Footer } from '@/components/landing/Footer';
 import { AgentSystemLanding } from '@/pages/AgentSystemLanding';
 
@@ -63,8 +61,6 @@ function MainLandingContent() {
         <Personas />
         <TechStack />
         <OrderForm />
-        <Metrics />
-        <Roadmap />
       </main>
       <Footer />
       <ScrollToTop />
