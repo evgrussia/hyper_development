@@ -6,8 +6,8 @@ import { usePrefersReducedMotion } from '@/hooks/useMediaQuery';
 import { ImageWithFallback } from '@/app/components/figma/ImageWithFallback';
 import { AboutBackground } from '@/components/backgrounds/AboutBackground';
 
-// Фото разработчика: public/developer-photo.svg (при добавлении .png можно сменить на /developer-photo.png)
-const developerPhoto = '/developer-photo.svg';
+// Фото разработчика: public/developer-photo.png (fallback — .svg плейсхолдер)
+const developerPhoto = '/developer-photo.png';
 
 export function About() {
   const scrollToOrder = () => {
@@ -53,7 +53,7 @@ export function About() {
                   {/* Photo: .png при наличии, иначе .svg плейсхолдер */}
                   <ImageWithFallback
                     src={developerPhoto}
-                    fallbackSrc="/developer-photo.png"
+                    fallbackSrc="/developer-photo.svg"
                     alt="Евгений Пономарев - Fullstack Developer"
                     className="w-full h-full object-cover object-center"
                     loading="eager"
