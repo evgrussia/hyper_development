@@ -1,12 +1,14 @@
 import { useEffect, useRef } from 'react';
+import { useInView } from 'react-intersection-observer';
 import { usePrefersReducedMotion } from '@/hooks/useMediaQuery';
 
 export function ServicesBackground() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const prefersReducedMotion = usePrefersReducedMotion();
+  const { ref: inViewRef, inView } = useInView({ threshold: 0, rootMargin: '80px' });
 
   useEffect(() => {
-    if (prefersReducedMotion) return;
+    if (prefersReducedMotion || !inView) return;
 
     const canvas = canvasRef.current;
     if (!canvas) return;
@@ -44,7 +46,7 @@ export function ServicesBackground() {
       }
     }
 
-    let animationFrame: number;
+    let animationFrame: number = 0;
     let time = 0;
 
     const animate = () => {
@@ -119,7 +121,7 @@ export function ServicesBackground() {
       cancelAnimationFrame(animationFrame);
       window.removeEventListener('resize', resizeCanvas);
     };
-  }, [prefersReducedMotion]);
+  }, [prefersReducedMotion, inView]);
 
   if (prefersReducedMotion) {
     return (
@@ -137,9 +139,11 @@ export function ServicesBackground() {
   }
 
   return (
-    <canvas
-      ref={canvasRef}
-      className="absolute inset-0 w-full h-full pointer-events-none"
-    />
+    <div ref={inViewRef} className="absolute inset-0 w-full h-full">
+      <canvas
+        ref={canvasRef}
+        className="absolute inset-0 w-full h-full pointer-events-none"
+      />
+    </div>
   );
 }

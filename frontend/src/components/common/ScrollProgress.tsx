@@ -5,9 +5,9 @@ import { usePrefersReducedMotion } from '@/hooks/useMediaQuery';
 export function ScrollProgress() {
   const { scrollYProgress } = useScroll();
   const scaleX = useSpring(scrollYProgress, {
-    stiffness: 100,
-    damping: 30,
-    restDelta: 0.001,
+    stiffness: 80,
+    damping: 35,
+    restDelta: 0.005,
   });
   const prefersReducedMotion = usePrefersReducedMotion();
 

@@ -1,12 +1,14 @@
 import { useEffect, useRef } from 'react';
+import { useInView } from 'react-intersection-observer';
 import { usePrefersReducedMotion } from '@/hooks/useMediaQuery';
 
 export function ValuePropositionBackground() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const prefersReducedMotion = usePrefersReducedMotion();
+  const { ref: inViewRef, inView } = useInView({ threshold: 0, rootMargin: '100px' });
 
   useEffect(() => {
-    if (prefersReducedMotion) return;
+    if (prefersReducedMotion || !inView) return;
 
     const canvas = canvasRef.current;
     if (!canvas) return;
@@ -23,23 +25,21 @@ export function ValuePropositionBackground() {
     window.addEventListener('resize', resizeCanvas);
 
     let time = 0;
-    let animationFrame: number;
+    let animationFrame: number = 0;
 
     const animate = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       time += 0.01;
 
-      // Draw multiple wave layers
       for (let layer = 0; layer < 3; layer++) {
         ctx.beginPath();
         ctx.moveTo(0, canvas.height / 2);
 
         for (let x = 0; x < canvas.width; x += 5) {
-          const y = 
-            canvas.height / 2 + 
+          const y =
+            canvas.height / 2 +
             Math.sin(x * 0.01 + time + layer) * 30 +
             Math.sin(x * 0.02 - time * 0.5 + layer * 2) * 20;
-          
           ctx.lineTo(x, y);
         }
 
@@ -49,7 +49,6 @@ export function ValuePropositionBackground() {
         ctx.lineWidth = 2;
         ctx.stroke();
 
-        // Fill area under wave
         ctx.lineTo(canvas.width, canvas.height);
         ctx.lineTo(0, canvas.height);
         ctx.closePath();
@@ -66,7 +65,7 @@ export function ValuePropositionBackground() {
       cancelAnimationFrame(animationFrame);
       window.removeEventListener('resize', resizeCanvas);
     };
-  }, [prefersReducedMotion]);
+  }, [prefersReducedMotion, inView]);
 
   if (prefersReducedMotion) {
     return (
@@ -75,9 +74,11 @@ export function ValuePropositionBackground() {
   }
 
   return (
-    <canvas
-      ref={canvasRef}
-      className="absolute inset-0 w-full h-full pointer-events-none"
-    />
+    <div ref={inViewRef} className="absolute inset-0 w-full h-full">
+      <canvas
+        ref={canvasRef}
+        className="absolute inset-0 w-full h-full pointer-events-none"
+      />
+    </div>
   );
 }
