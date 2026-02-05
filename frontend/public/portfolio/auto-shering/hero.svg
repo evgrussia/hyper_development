@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675">
+  <defs>
+    <radialGradient id="blob1" cx="30%" cy="70%" r="45%">
+      <stop offset="0%" stop-color="#4F46E5" stop-opacity="0.55"/>
+      <stop offset="50%" stop-color="#06B6D4" stop-opacity="0.18"/>
+      <stop offset="100%" stop-color="#0F172A" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="blob2" cx="85%" cy="25%" r="38%">
+      <stop offset="0%" stop-color="#06B6D4" stop-opacity="0.45"/>
+      <stop offset="60%" stop-color="#4F46E5" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#0F172A" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="2" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+    <linearGradient id="border-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#06B6D4" stop-opacity="0.6"/>
+      <stop offset="50%" stop-color="#4F46E5" stop-opacity="0.2"/>
+      <stop offset="100%" stop-color="#06B6D4" stop-opacity="0.6"/>
+    </linearGradient>
+    <linearGradient id="glass-border" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="white" stop-opacity="0.15"/>
+      <stop offset="50%" stop-color="white" stop-opacity="0.04"/>
+      <stop offset="100%" stop-color="white" stop-opacity="0.15"/>
+    </linearGradient>
+    <linearGradient id="road-line" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#4F46E5" stop-opacity="0"/>
+      <stop offset="30%" stop-color="#4F46E5" stop-opacity="0.08"/>
+      <stop offset="70%" stop-color="#06B6D4" stop-opacity="0.08"/>
+      <stop offset="100%" stop-color="#06B6D4" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="675" fill="#0F172A"/>
+
+  <!-- Gradient blobs -->
+  <ellipse cx="350" cy="480" rx="440" ry="360" fill="url(#blob1)"/>
+  <ellipse cx="1000" cy="170" rx="380" ry="320" fill="url(#blob2)"/>
+
+  <!-- Road/path lines -->
+  <g opacity="0.06">
+    <line x1="0" y1="580" x2="1200" y2="580" stroke="url(#road-line)" stroke-width="2"/>
+    <line x1="0" y1="560" x2="1200" y2="560" stroke="url(#road-line)" stroke-width="1" stroke-dasharray="20,15"/>
+  </g>
+
+  <!-- Speed dots -->
+  <g opacity="0.04" fill="white">
+    <circle cx="100" cy="300" r="1.5"/><circle cx="150" cy="310" r="1"/>
+    <circle cx="200" cy="295" r="1.5"/><circle cx="280" cy="305" r="1"/>
+    <circle cx="920" cy="380" r="1.5"/><circle cx="980" cy="370" r="1"/>
+    <circle cx="1040" cy="385" r="1.5"/><circle cx="1100" cy="375" r="1"/>
+  </g>
+
+  <!-- Glass card -->
+  <rect x="275" y="190" width="650" height="290" rx="24" ry="24" fill="white" fill-opacity="0.03" stroke="url(#glass-border)" stroke-width="1.5"/>
+  <rect x="275" y="190" width="650" height="290" rx="24" ry="24" fill="none" stroke="url(#border-grad)" stroke-width="1" opacity="0.4"/>
+
+  <!-- Car icon -->
+  <g transform="translate(600, 265)" opacity="0.12" fill="none" stroke="#06B6D4" stroke-width="1.5">
+    <path d="M-30,5 L-25,-10 L-15,-18 L15,-18 L25,-10 L30,5 L30,12 L-30,12 Z"/>
+    <circle cx="-18" cy="14" r="5"/><circle cx="18" cy="14" r="5"/>
+    <line x1="-8" y1="-18" x2="-5" y2="-10"/>
+    <line x1="8" y1="-18" x2="5" y2="-10"/>
+    <path d="M-42,0 L-35,0" stroke-dasharray="3,3"/><path d="M35,0 L42,0" stroke-dasharray="3,3"/>
+  </g>
+
+  <!-- Project name -->
+  <text x="600" y="346" font-family="'Segoe UI', Arial, sans-serif" font-size="34" font-weight="700" fill="white" text-anchor="middle" filter="url(#glow)" letter-spacing="2">Авто-Шеринг-Сосед</text>
+
+  <!-- Category tag -->
+  <rect x="490" y="376" width="220" height="36" rx="18" fill="white" fill-opacity="0.06" stroke="white" stroke-opacity="0.1" stroke-width="1"/>
+  <text x="600" y="400" font-family="'Segoe UI', Arial, sans-serif" font-size="16" fill="#94A3B8" text-anchor="middle" letter-spacing="2">Mobility | P2P</text>
+
+  <!-- Outer border glow -->
+  <rect x="1" y="1" width="1198" height="673" rx="0" ry="0" fill="none" stroke="url(#border-grad)" stroke-width="1" opacity="0.3"/>
+</svg>

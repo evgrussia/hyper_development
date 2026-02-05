@@ -110,7 +110,16 @@ export function DataProvider({ children }: { children: ReactNode }) {
   const [portfolio, setPortfolio] = useState<PortfolioItem[]>(() => {
     const saved = localStorage.getItem('portfolio');
     if (saved) {
-      return JSON.parse(saved);
+      const parsed = JSON.parse(saved);
+      // Migration: if saved data lacks slug field, reset to defaults
+      if (parsed.length > 0 && !parsed[0].slug) {
+        localStorage.removeItem('portfolio');
+        return defaultPortfolio.map((item, index) => ({
+          ...item,
+          id: `portfolio-${index + 1}`,
+        }));
+      }
+      return parsed;
     }
     // Convert initial portfolio to include IDs
     return defaultPortfolio.map((item, index) => ({

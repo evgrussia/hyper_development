@@ -1,4 +1,4 @@
-import { Menu, X } from 'lucide-react';
+import { Menu, X, ArrowLeft } from 'lucide-react';
 import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Button } from '@/app/components/ui/button';
@@ -6,10 +6,11 @@ import { Button } from '@/app/components/ui/button';
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const location = useLocation();
-  const isAIConceptPage = location.pathname === '/ai-concept';
+  const isSubPage = location.pathname.startsWith('/portfolio/') || location.pathname === '/ai-concept';
+  const isInvestorPage = location.pathname.includes('/investor');
 
   const scrollToSection = (id: string) => {
-    if (isAIConceptPage) return;
+    if (isSubPage) return;
     const element = document.getElementById(id);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
@@ -25,7 +26,7 @@ export function Header() {
           <div className="flex-shrink-0">
             <Link
               to="/"
-              onClick={() => !isAIConceptPage && setIsMenuOpen(false)}
+              onClick={() => setIsMenuOpen(false)}
               className="text-xl lg:text-2xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent hover:opacity-80 transition-opacity"
             >
               Hyper-Development
@@ -34,13 +35,30 @@ export function Header() {
 
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center space-x-8">
-            {isAIConceptPage ? (
-              <Link
-                to="/"
-                className="text-sm font-medium text-foreground/80 hover:text-foreground transition-colors"
-              >
-                На главную
-              </Link>
+            {isSubPage ? (
+              <>
+                <Link
+                  to="/"
+                  className="text-sm font-medium text-foreground/80 hover:text-foreground transition-colors flex items-center gap-1.5"
+                >
+                  <ArrowLeft className="w-4 h-4" />
+                  На главную
+                </Link>
+                {isInvestorPage && (
+                  <Link
+                    to={location.pathname.replace('/investor', '')}
+                    className="text-sm font-medium text-foreground/80 hover:text-foreground transition-colors"
+                  >
+                    О проекте
+                  </Link>
+                )}
+                <Link
+                  to="/#portfolio"
+                  className="text-sm font-medium text-foreground/80 hover:text-foreground transition-colors"
+                >
+                  Портфолио
+                </Link>
+              </>
             ) : (
               <>
                 <button
@@ -79,7 +97,7 @@ export function Header() {
 
           {/* CTA Button */}
           <div className="hidden lg:block">
-            {isAIConceptPage ? (
+            {isSubPage ? (
               <Link to="/#order">
                 <Button className="bg-gradient-to-r from-primary to-accent hover:opacity-90 transition-opacity">
                   Заказать проект
@@ -113,14 +131,33 @@ export function Header() {
       {isMenuOpen && (
         <div className="lg:hidden glass-strong border-t border-border">
           <div className="container mx-auto px-4 py-4 space-y-3">
-            {isAIConceptPage ? (
-              <Link
-                to="/"
-                onClick={() => setIsMenuOpen(false)}
-                className="block w-full text-left px-4 py-2 rounded-lg text-foreground/80 hover:text-foreground hover:bg-white/5 transition-colors"
-              >
-                На главную
-              </Link>
+            {isSubPage ? (
+              <>
+                <Link
+                  to="/"
+                  onClick={() => setIsMenuOpen(false)}
+                  className="flex items-center gap-1.5 w-full text-left px-4 py-2 rounded-lg text-foreground/80 hover:text-foreground hover:bg-white/5 transition-colors"
+                >
+                  <ArrowLeft className="w-4 h-4" />
+                  На главную
+                </Link>
+                {isInvestorPage && (
+                  <Link
+                    to={location.pathname.replace('/investor', '')}
+                    onClick={() => setIsMenuOpen(false)}
+                    className="block w-full text-left px-4 py-2 rounded-lg text-foreground/80 hover:text-foreground hover:bg-white/5 transition-colors"
+                  >
+                    О проекте
+                  </Link>
+                )}
+                <Link
+                  to="/#portfolio"
+                  onClick={() => setIsMenuOpen(false)}
+                  className="block w-full text-left px-4 py-2 rounded-lg text-foreground/80 hover:text-foreground hover:bg-white/5 transition-colors"
+                >
+                  Портфолио
+                </Link>
+              </>
             ) : (
               <>
                 <button
@@ -156,7 +193,7 @@ export function Header() {
                 </Link>
               </>
             )}
-            {isAIConceptPage ? (
+            {isSubPage ? (
               <Link to="/#order" onClick={() => setIsMenuOpen(false)} className="block">
                 <Button className="w-full bg-gradient-to-r from-primary to-accent">
                   Заказать проект

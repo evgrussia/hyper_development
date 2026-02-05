@@ -20,6 +20,11 @@ import { TechStack } from '@/components/landing/TechStack';
 import { OrderForm } from '@/components/landing/OrderForm';
 import { Footer } from '@/components/landing/Footer';
 import { AgentSystemLanding } from '@/pages/AgentSystemLanding';
+import { PageLoader } from '@/components/common/PageLoader';
+
+// Portfolio sub-pages (lazy loaded)
+const ProjectDetailPage = lazy(() => import('@/pages/ProjectDetailPage'));
+const InvestorPage = lazy(() => import('@/pages/InvestorPage'));
 
 // Admin components (lazy loaded)
 const Login = lazy(() => import('@/components/admin/Login').then(m => ({ default: m.Login })));
@@ -102,10 +107,14 @@ export default function App() {
   }, []);
 
   const renderRoutes = () => (
-    <Routes>
-      <Route path="/ai-concept" element={<AgentSystemLanding />} />
-      <Route path="/*" element={<MainLandingContent />} />
-    </Routes>
+    <Suspense fallback={<PageLoader />}>
+      <Routes>
+        <Route path="/ai-concept" element={<AgentSystemLanding />} />
+        <Route path="/portfolio/:slug/investor" element={<InvestorPage />} />
+        <Route path="/portfolio/:slug" element={<ProjectDetailPage />} />
+        <Route path="/*" element={<MainLandingContent />} />
+      </Routes>
+    </Suspense>
   );
 
   const renderAdmin = () => {
