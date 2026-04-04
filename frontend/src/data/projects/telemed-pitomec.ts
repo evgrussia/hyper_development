@@ -7,8 +7,12 @@ export const projectDetail: ProjectDetail = {
   description: 'Телемед-Питомец — Telegram WebApp для ухода за здоровьем домашних животных, объединяющий AI-диагностику по фото с доступом к лицензированным ветеринарам 24/7. Computer vision анализирует симптомы по фотографиям, а видеоконсультации позволяют получить профессиональную помощь.\n\nПлатформа включает дневник здоровья питомца с отслеживанием веса, питания и активности, автоматические напоминания о прививках и интегрированный маркетплейс кормов и лекарств.\n\nБэкенд на Django с REST Framework, фронтенд на React с Telegram WebApp SDK. Видеозвонки через WebRTC, PostgreSQL для хранения данных.',
   siteUrl: 'https://telemed-pitomec.ru',
   githubUrl: 'https://github.com/evgrussia/telemed-pitomec',
-  screenshots: ['/portfolio/telemed-pitomec/hero.svg'],
-  heroImage: '/portfolio/telemed-pitomec/hero.svg',
+  screenshots: [
+    '/portfolio/telemed-pitomec/hero.png',
+    '/portfolio/telemed-pitomec/screenshot-middle.png',
+    '/portfolio/telemed-pitomec/screenshot-mobile.png',
+  ],
+  heroImage: '/portfolio/telemed-pitomec/hero.png',
   techStack: [
     { category: 'Backend', items: ['Python', 'Django', 'Django REST Framework', 'PostgreSQL', 'Redis'] },
     { category: 'Frontend', items: ['React', 'TypeScript', 'Telegram WebApp SDK', 'Tailwind CSS'] },

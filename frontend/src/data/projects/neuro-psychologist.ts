@@ -7,8 +7,13 @@ export const projectDetail: ProjectDetail = {
   description: 'Нейро-Психолог 24/7 — круглосуточная AI-платформа психологической поддержки, работающая через Telegram WebApp. Система использует российскую языковую модель GigaChat и методы когнитивно-поведенческой терапии (КПТ) для оказания доступной психологической помощи.\n\nПлатформа включает дневник эмоций с аналитикой настроения, детектор кризисных состояний с автоматическим подключением специалиста, интеграцию с wearables для мониторинга физиологических показателей стресса.\n\nВсе данные обрабатываются в соответствии с 152-ФЗ, а система прозрачно разграничивает AI-поддержку и профессиональную психологическую помощь.',
   siteUrl: 'https://balance-space.ru',
   githubUrl: 'https://github.com/evgrussia/emotional-balance',
-  screenshots: ['/portfolio/neuro-psychologist/hero.svg'],
-  heroImage: '/portfolio/neuro-psychologist/hero.svg',
+  screenshots: [
+    '/portfolio/neuro-psychologist/hero.png',
+    '/portfolio/neuro-psychologist/screenshot-middle.png',
+    '/portfolio/neuro-psychologist/screenshot-bottom.png',
+    '/portfolio/neuro-psychologist/screenshot-mobile.png',
+  ],
+  heroImage: '/portfolio/neuro-psychologist/hero.png',
   techStack: [
     { category: 'Backend', items: ['Python', 'Django', 'Django REST Framework', 'PostgreSQL', 'Redis'] },
     { category: 'Frontend', items: ['TypeScript', 'React', 'Telegram WebApp SDK', 'Tailwind CSS'] },

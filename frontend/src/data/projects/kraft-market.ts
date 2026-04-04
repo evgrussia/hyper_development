@@ -7,8 +7,13 @@ export const projectDetail: ProjectDetail = {
   description: 'Крафт-Маркет — гиперлокальный маркетплейс для изделий ручной работы, реализованный как Telegram WebApp. Платформа объединяет мастеров и покупателей в рамках конкретного города или района, обеспечивая локальную доставку и живой контакт.\n\nСистема безопасных сделок через эскроу защищает обе стороны, а автоматическое формирование чеков обеспечивает соответствие 54-ФЗ. Каждый мастер получает персональную витрину с историей создания изделий и процессом работы.\n\nПлатформа фокусируется на handmade-категориях: керамика, авторская выпечка, украшения, текстиль, деревянные изделия. Геопривязка помогает покупателям находить мастеров рядом с домом.',
   siteUrl: 'https://kraft-market-city.ru',
   githubUrl: 'https://github.com/evgrussia/kraft-market',
-  screenshots: ['/portfolio/kraft-market/hero.svg'],
-  heroImage: '/portfolio/kraft-market/hero.svg',
+  screenshots: [
+    '/portfolio/kraft-market/hero.png',
+    '/portfolio/kraft-market/screenshot-middle.png',
+    '/portfolio/kraft-market/screenshot-bottom.png',
+    '/portfolio/kraft-market/screenshot-mobile.png',
+  ],
+  heroImage: '/portfolio/kraft-market/hero.png',
   techStack: [
     { category: 'Backend', items: ['Python', 'Django', 'PostgreSQL', 'Redis'] },
     { category: 'Frontend', items: ['TypeScript', 'React', 'Telegram WebApp SDK', 'Tailwind CSS'] },

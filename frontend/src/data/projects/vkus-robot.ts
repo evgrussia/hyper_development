@@ -7,8 +7,13 @@ export const projectDetail: ProjectDetail = {
   description: 'Вкус-Робот — AI-ассистент в Telegram, который генерирует персонализированные рецепты на основе фото содержимого холодильника. Computer vision распознаёт ингредиенты, а LLM создаёт пошаговые инструкции с таймерами.\n\nСистема адаптируется под диетические ограничения пользователя, рассчитывает КБЖУ каждого рецепта и поддерживает голосовое управление для удобства на кухне. Интеграция с сервисами доставки позволяет заказать недостающие продукты.\n\nFrontend реализован на React с Tailwind CSS, бэкенд развёрнут на VPS с Docker. Платежи через YooKassa с поддержкой TON blockchain.',
   siteUrl: 'https://vkus-robot.ru',
   githubUrl: 'https://github.com/evgrussia/vkus-robot',
-  screenshots: ['/portfolio/vkus-robot/hero.svg'],
-  heroImage: '/portfolio/vkus-robot/hero.svg',
+  screenshots: [
+    '/portfolio/vkus-robot/hero.png',
+    '/portfolio/vkus-robot/screenshot-middle.png',
+    '/portfolio/vkus-robot/screenshot-bottom.png',
+    '/portfolio/vkus-robot/screenshot-mobile.png',
+  ],
+  heroImage: '/portfolio/vkus-robot/hero.png',
   techStack: [
     { category: 'Backend', items: ['Python', 'FastAPI', 'PostgreSQL', 'Redis'] },
     { category: 'Frontend', items: ['React', 'TypeScript', 'Tailwind CSS', 'Telegram WebApp SDK'] },

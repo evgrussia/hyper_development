@@ -7,8 +7,13 @@ export const projectDetail: ProjectDetail = {
   description: 'Юрист-в-Кармане — AI-powered юридический ассистент в Telegram, предоставляющий понятные правовые консультации со ссылками на действующие законы и генерирующий готовые юридические документы.\n\nСистема охватывает 10 областей права: жилищно-коммунальное, трудовое, защита прав потребителя, семейное, наследственное, административное, земельное, социальное обеспечение, миграционное и налоговое. AI на базе GigaChat цитирует конкретные статьи законов и предоставляет шаблоны документов.\n\nПлатформа реализована как Telegram WebApp с mobile-first дизайном и соответствием WCAG 2.1 AA. Freemium-модель с премиум-подписками обеспечивает доступность для массовой аудитории.',
   siteUrl: 'https://urist-v-karmane.ru',
   githubUrl: 'https://github.com/evgrussia/urist_v_karmane',
-  screenshots: ['/portfolio/urist-v-karmane/hero.svg'],
-  heroImage: '/portfolio/urist-v-karmane/hero.svg',
+  screenshots: [
+    '/portfolio/urist-v-karmane/hero.png',
+    '/portfolio/urist-v-karmane/screenshot-middle.png',
+    '/portfolio/urist-v-karmane/screenshot-bottom.png',
+    '/portfolio/urist-v-karmane/screenshot-mobile.png',
+  ],
+  heroImage: '/portfolio/urist-v-karmane/hero.png',
   techStack: [
     { category: 'Backend', items: ['Python', 'FastAPI', 'PostgreSQL', 'Redis'] },
     { category: 'Frontend', items: ['React', 'Vite', 'TypeScript', 'Telegram WebApp SDK', 'WCAG 2.1 AA'] },

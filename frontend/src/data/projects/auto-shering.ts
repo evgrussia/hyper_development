@@ -7,8 +7,13 @@ export const projectDetail: ProjectDetail = {
   description: 'Авто-Шеринг-Сосед — P2P-платформа каршеринга, позволяющая соседям сдавать и арендовать автомобили друг у друга. Интеграция умных замков обеспечивает бесконтактный доступ к автомобилю, верификация через Госуслуги гарантирует надёжность пользователей.\n\nКАСКО на время аренды включено в стоимость, а GPS-трекинг обеспечивает контроль местоположения автомобиля. Цена аренды на 30-50% ниже традиционного каршеринга благодаря P2P-модели без промежуточных издержек.\n\nПлатформа реализована как Telegram WebApp с чатами соседского сообщества, системой арбитража и подробными рейтингами водителей и владельцев.',
   siteUrl: 'https://auto-shering-sosed.ru',
   githubUrl: 'https://github.com/evgrussia/auto-shering-sosed',
-  screenshots: ['/portfolio/auto-shering/hero.svg'],
-  heroImage: '/portfolio/auto-shering/hero.svg',
+  screenshots: [
+    '/portfolio/auto-shering/hero.png',
+    '/portfolio/auto-shering/screenshot-middle.png',
+    '/portfolio/auto-shering/screenshot-bottom.png',
+    '/portfolio/auto-shering/screenshot-mobile.png',
+  ],
+  heroImage: '/portfolio/auto-shering/hero.png',
   techStack: [
     { category: 'Backend', items: ['Python', 'Django', 'PostgreSQL', 'Redis'] },
     { category: 'Frontend', items: ['TypeScript', 'React', 'Telegram WebApp SDK', 'Tailwind CSS'] },

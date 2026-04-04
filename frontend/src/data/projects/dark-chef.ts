@@ -7,8 +7,13 @@ export const projectDetail: ProjectDetail = {
   description: 'Дарк-Шеф — инновационная FoodTech-платформа, позволяющая домашним поварам и начинающим ресторАторам запускать виртуальные рестораны без аренды помещения. Система включает AI-инжиниринг меню, маркетплейс dark kitchens и полную интеграцию с агрегаторами доставки.\n\nПлатформа обеспечивает запуск нового ресторана за 1 день: от создания бренда и меню до подключения к Яндекс.Еда, Delivery Club и другим сервисам доставки. AI анализирует гастрономические тренды и помогает создать конкурентоспособное предложение.\n\nДарк-Шеф соответствует регуляторным требованиям пищевой отрасли и включает CJM для трёх основных персон: повара, заказчика и оператора dark kitchen.',
   siteUrl: 'https://dark-chef.ru',
   githubUrl: 'https://github.com/evgrussia/dark_chef',
-  screenshots: ['/portfolio/dark-chef/hero.svg'],
-  heroImage: '/portfolio/dark-chef/hero.svg',
+  screenshots: [
+    '/portfolio/dark-chef/hero.png',
+    '/portfolio/dark-chef/screenshot-middle.png',
+    '/portfolio/dark-chef/screenshot-bottom.png',
+    '/portfolio/dark-chef/screenshot-mobile.png',
+  ],
+  heroImage: '/portfolio/dark-chef/hero.png',
   techStack: [
     { category: 'Backend', items: ['Python', 'FastAPI', 'PostgreSQL', 'Redis'] },
     { category: 'Frontend', items: ['TypeScript', 'React', 'Telegram WebApp SDK', 'Tailwind CSS'] },

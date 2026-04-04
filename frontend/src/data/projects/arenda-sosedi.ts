@@ -7,8 +7,13 @@ export const projectDetail: ProjectDetail = {
   description: 'Арендо-Соседи — гиперлокальная P2P-платформа для аренды вещей между соседями в жилых комплексах. Telegram WebApp позволяет за минуту найти и арендовать инструменты, спортивный инвентарь, технику и другие вещи у соседей.\n\nПлатформа обеспечивает безопасность через депозитную систему, страхование от повреждений и систему рейтингов. Модерация и арбитраж решают спорные ситуации.\n\nСистема работает на уровне конкретного ЖК или района, создавая локальные сообщества взаимопомощи и рационального потребления.',
   siteUrl: 'https://arenda-sosedi.ru',
   githubUrl: 'https://github.com/evgrussia/arenda-sosedi',
-  screenshots: ['/portfolio/arenda-sosedi/hero.svg'],
-  heroImage: '/portfolio/arenda-sosedi/hero.svg',
+  screenshots: [
+    '/portfolio/arenda-sosedi/hero.png',
+    '/portfolio/arenda-sosedi/screenshot-middle.png',
+    '/portfolio/arenda-sosedi/screenshot-bottom.png',
+    '/portfolio/arenda-sosedi/screenshot-mobile.png',
+  ],
+  heroImage: '/portfolio/arenda-sosedi/hero.png',
   techStack: [
     { category: 'Backend', items: ['Python', 'Django', 'PostgreSQL', 'Redis'] },
     { category: 'Frontend', items: ['TypeScript', 'React', 'Telegram WebApp SDK', 'Tailwind CSS'] },

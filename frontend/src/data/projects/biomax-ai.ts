@@ -7,8 +7,13 @@ export const projectDetail: ProjectDetail = {
   description: 'BIOMAX AI — это мультиагентная платформа для комплексного управления здоровьем, объединяющая 15 специализированных AI-агентов. Система анализирует данные сна, питания, тренировок, анализов крови и генетических тестов, предоставляя персонализированные рекомендации на основе научных протоколов.\n\nПлатформа интегрируется с более чем 100 источниками данных: от фитнес-трекеров и умных весов до лабораторий и геномных сервисов. Custom RAG-система позволяет загружать собственные протоколы и исследования, а система полностью соответствует требованиям 152-ФЗ.\n\nМультиплатформенное решение включает мобильное приложение (Flutter), веб-интерфейс (Next.js), Telegram-бота и голосовой интерфейс для максимальной доступности.',
   siteUrl: 'https://biomax-ai.ru',
   githubUrl: 'https://github.com/evgrussia/biomax_ai',
-  screenshots: ['/portfolio/biomax-ai/hero.svg'],
-  heroImage: '/portfolio/biomax-ai/hero.svg',
+  screenshots: [
+    '/portfolio/biomax-ai/hero.png',
+    '/portfolio/biomax-ai/screenshot-middle.png',
+    '/portfolio/biomax-ai/screenshot-bottom.png',
+    '/portfolio/biomax-ai/screenshot-mobile.png',
+  ],
+  heroImage: '/portfolio/biomax-ai/hero.png',
   techStack: [
     { category: 'Backend', items: ['FastAPI', 'Kong API Gateway', 'PostgreSQL', 'ClickHouse', 'Qdrant', 'Neo4j'] },
     { category: 'Frontend', items: ['Flutter (iOS/Android)', 'Next.js', 'Tailwind CSS'] },

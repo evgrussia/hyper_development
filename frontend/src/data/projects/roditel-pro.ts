@@ -7,8 +7,13 @@ export const projectDetail: ProjectDetail = {
   description: 'Родитель-Про — AI-ассистент для родителей детей от рождения до 3 лет, работающий как Telegram WebApp. Платформа объединяет трекинг сна и кормления, чат с AI-педиатром, видеоконсультации с врачами и календарь развития ребёнка.\n\nСистема соответствует требованиям 152-ФЗ и регулированию телемедицины в РФ. AI-компонент основан на проверенных педиатрических протоколах и чётко разграничивает AI-рекомендации и профессиональные медицинские консультации.\n\nПлатформа включает комьюнити родителей, напоминания о прививках по национальному календарю и персонализированные рекомендации на основе данных о развитии ребёнка.',
   siteUrl: 'https://roditel-pro.ru',
   githubUrl: 'https://github.com/evgrussia/roditel-pro',
-  screenshots: ['/portfolio/roditel-pro/hero.svg'],
-  heroImage: '/portfolio/roditel-pro/hero.svg',
+  screenshots: [
+    '/portfolio/roditel-pro/hero.png',
+    '/portfolio/roditel-pro/screenshot-middle.png',
+    '/portfolio/roditel-pro/screenshot-bottom.png',
+    '/portfolio/roditel-pro/screenshot-mobile.png',
+  ],
+  heroImage: '/portfolio/roditel-pro/hero.png',
   techStack: [
     { category: 'Backend', items: ['Python', 'Django', 'Django REST Framework', 'PostgreSQL'] },
     { category: 'Frontend', items: ['TypeScript', 'React', 'Telegram WebApp SDK', 'Tailwind CSS'] },
